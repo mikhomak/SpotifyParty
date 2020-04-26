@@ -1,0 +1,8 @@
+.Main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.Main>* {
+    flex: 1 1 160px;
+}
