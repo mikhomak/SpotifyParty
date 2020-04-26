@@ -8,6 +8,6 @@ interface NavbarItemProps {
 
 export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
     return (
-        <a className={"NavbarItem"} href={props.url}>{props.name}</a>
+        <a className="NavbarItem" href={props.url}>{props.name}</a>
     );
 };

@@ -6,3 +6,10 @@
 .Main>* {
     flex: 1 1 160px;
 }
+
+.PartyControl{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}

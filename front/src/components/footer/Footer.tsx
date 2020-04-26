@@ -5,8 +5,8 @@ export const Footer = () => {
 
     return (
         <div>
-            <FooterItem name={"About"} url={""}/>
-            <FooterItem name={"Contact us"} url={""}/>
+            <FooterItem name="About" url=""/>
+            <FooterItem name="Contact us" url=""/>
         </div>
     );
 

@@ -20,8 +20,11 @@ export class Main extends React.Component<MainProps, MainState> {
         return (
             <div className={"Main"}>
                 <Navbar/>
-                <CreateParty/>
-                <JoinPart/>
+                <div className="PartyControl">
+                    <CreateParty/>
+                    OR
+                    <JoinPart/>
+                </div>
                 <Footer/>
             </div>
         );
