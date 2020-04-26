@@ -1,0 +1,16 @@
+.NavbarItem{
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.NavbarItem:hover{
+    background-color: rgb(154,154,154);
+    color: black;
+}
+
+.NavbarItem .active{
+    background-color: rgb(29,185,84);
+}

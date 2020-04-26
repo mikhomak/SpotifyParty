@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import {Main} from "./models/main/Main";
 
 function App() {
     return (
-        <div>ssad</div>
+        <div className={"App"}>
+            <Main/>
+        </div>
     );
 }
 
