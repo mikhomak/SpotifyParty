@@ -1,9 +1,8 @@
 .NavbarItem{
-    float: right;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 6px 8px 6px 16px;
     text-decoration: none;
     color: #fff;
+    display: block;
 }
 
 .NavbarItem:hover{
