@@ -1,0 +1,14 @@
+.FooterItem {
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.FooterItem:hover {
+    color: #5c5c5c;
+}
+
+.FooterItem .active {
+    background-color: rgb(29, 185, 84);
+}
+

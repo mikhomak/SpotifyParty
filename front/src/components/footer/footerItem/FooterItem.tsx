@@ -1,5 +1,6 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
+import './FooterItem.css'
 
 interface FooterItemProps {
     name: string;
@@ -9,7 +10,7 @@ interface FooterItemProps {
 export const FooterItem: React.FC<FooterItemProps> = (props) => {
 
     return (
-        <a href={props.url}>{props.name}</a>
+        <Link className='FooterItem' to={props.url}>{props.name}</Link>
     );
 
 };
