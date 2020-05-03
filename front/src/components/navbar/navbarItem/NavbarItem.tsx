@@ -1,5 +1,7 @@
 import React from "react";
 import './NavbarItem.css';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
+
 
 interface NavbarItemProps {
     name: string;
@@ -8,6 +10,6 @@ interface NavbarItemProps {
 
 export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
     return (
-        <a className="NavbarItem" href={props.url}>{props.name}</a>
+        <Link className="NavbarItem" to={props.url}>{props.name}</Link>
     );
 };

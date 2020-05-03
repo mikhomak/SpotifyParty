@@ -1,10 +1,15 @@
 import React from "react";
+import {Button} from "../UI/button/Button";
 
 export const CreateParty = () => {
 
     return (
         <div>
-            <button> create party</button>
+            <Button name="create party" actionEvent={f}/>
         </div>
     );
+
+    function f() {
+
+    }
 };
