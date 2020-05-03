@@ -1,7 +1,6 @@
 import React from "react";
 import './Main.css'
-import {JoinPart} from "../../components/joinParty/JoinParty";
-import {CreateParty} from "../../components/createParty/CreateParty";
+import {PartyControls} from "../../components/partyControls/PartyControls";
 
 interface MainProps {
 
@@ -17,11 +16,7 @@ export class Main extends React.Component<MainProps, MainState> {
     render() {
         return (
             <div className={"Main"}>
-                <div className="PartyControl">
-                    <CreateParty/>
-                    OR
-                    <JoinPart/>
-                </div>
+                <PartyControls/>
             </div>
         );
     };
