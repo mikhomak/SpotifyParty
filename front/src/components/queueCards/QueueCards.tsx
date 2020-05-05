@@ -11,6 +11,8 @@ export const QueueCards = () => {
             <Card name='The only exception' artist="Paramore" position={3}/>
             <Card name='The only exception' artist="Paramore" position={4}/>
             <Card name='The only exception' artist="Paramore" position={5}/>
+            <Card name='The only exception' artist="Paramore" position={6}/>
+            <Card name='The only exception' artist="Paramore" position={7}/>
         </div>
     );
 };

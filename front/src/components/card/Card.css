@@ -3,6 +3,7 @@
 
 .label {
     text-align: center;
+    padding-top: 1em;
 }
 
 .img {
@@ -13,6 +14,7 @@
 .main {
     z-index: 1;
     position: relative;
+    padding-top: 20px;
 }
 
 .secondly {
@@ -23,8 +25,15 @@
 }
 
 .secondly.border {
-    filter: brightness(30%);
+    filter: brightness(40%);
     z-index: -2;
     max-width: 200px;
     max-height: 200px;
+}
+
+.secondly.last{
+    filter: brightness(30%);
+    max-width: 160px;
+    max-height: 160px;
+    z-index: -3;
 }
