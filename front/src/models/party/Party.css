@@ -1,6 +1,6 @@
-.Main {
+.Party{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    height: 700px;
 }

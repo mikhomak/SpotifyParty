@@ -1,0 +1,30 @@
+.Card {
+}
+
+.label {
+    text-align: center;
+}
+
+.img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.main {
+    z-index: 1;
+    position: relative;
+}
+
+.secondly {
+    filter: brightness(50%);
+    max-width: 250px;
+    max-height: 250px;
+    margin-left: -15px;
+}
+
+.secondly.border {
+    filter: brightness(30%);
+    z-index: -2;
+    max-width: 200px;
+    max-height: 200px;
+}
