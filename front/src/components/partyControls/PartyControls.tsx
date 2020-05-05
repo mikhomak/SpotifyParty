@@ -7,7 +7,7 @@ export const PartyControls = () => {
     return (
         <div className="PartyControl">
             <CreateParty/>
-            OR
+            <span>OR</span>
             <JoinPart/>
         </div>
     );

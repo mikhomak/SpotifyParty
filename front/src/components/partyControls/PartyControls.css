@@ -6,3 +6,7 @@
     padding: 10px;
     height: 700px;
 }
+
+.PartyControl * {
+    margin: 5%;
+}
