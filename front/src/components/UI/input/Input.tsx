@@ -1,10 +1,18 @@
 import React from "react";
 import './Input.css';
 
-export const Input = () => {
 
-    return(
+interface InputProps {
+    placeholder?: String;
+}
 
-        <input className="Input" />
+
+export const Input: React.FC<InputProps> = (props) => {
+
+    const placeholder: string = props.placeholder !== null ? props.placeholder!.toString() : '';
+
+    return (
+
+        <input className="Input" placeholder={placeholder}/>
     );
 };

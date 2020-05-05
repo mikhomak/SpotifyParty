@@ -7,7 +7,7 @@ export const JoinPart = () => {
 
     return (
         <div className='JoinParty'>
-            <Input/>
+            <Input placeholder='party id'/>
             <Button name="join" actionEvent={doSomething}/>
         </div>
     );
