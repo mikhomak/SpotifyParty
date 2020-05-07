@@ -1,0 +1,25 @@
+.NowPlaying {
+    padding-left: 10px;
+    width: 30%;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+    color: white;
+}
+
+.NowPlaying img {
+    max-width: 56px;
+    max-height: 56px;
+}
+
+.SongInfo{
+    padding-left: 10px;
+    width: 100%;
+}
+
+
+.ArtistName{
+    color: #b3b3b3;
+}
