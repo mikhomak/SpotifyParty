@@ -13,7 +13,7 @@ export const PlayBar: React.FC<SongLengthProps> = (props) => {
             <span>
                 {props.currentTime}
             </span>
-                <div>
+                <div className='CurrentPlayBar'> `
                 </div>
             <span>
                 {props.maxTime}
