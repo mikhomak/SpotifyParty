@@ -6,7 +6,7 @@ export const PlayerControls = () => {
 
     return (
         <div className='PlayerControls'>
-            <PlayBar left={50.3}/>
+            <PlayBar currentTime='1:32' maxTime='3:32'/>
         </div>
     );
 };

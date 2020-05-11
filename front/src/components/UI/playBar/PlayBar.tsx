@@ -2,20 +2,21 @@ import React from "react";
 import './PlayBar.css';
 
 interface SongLengthProps {
-    left: number;
+    currentTime: string;
+    maxTime: string;
 }
 
-export const PlayBar: React.FC<SongLengthProps> = (SongLengthProps) => {
+export const PlayBar: React.FC<SongLengthProps> = (props) => {
 
     return (
         <div className="PlayBar">
             <span>
-                s
+                {props.currentTime}
             </span>
                 <div>
                 </div>
             <span>
-                s
+                {props.maxTime}
             </span>
         </div>
     );
