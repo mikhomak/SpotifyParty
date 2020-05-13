@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './PassCounter.css';
 interface PassCounterProps {
     counter: number;
 };
@@ -8,9 +8,9 @@ interface PassCounterProps {
 export const PassCounter:React.FC<PassCounterProps> = (props) =>{
 
     return(
-        <div>
+        <div className='PassCounter'>
             <span>
-                Pass?!
+                Pass?! - &nbsp;   
             </span>
             <span>
                 {props.counter}
