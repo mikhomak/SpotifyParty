@@ -7,6 +7,7 @@ import {Footer} from "./components/footer/Footer";
 import {About} from "./models/about/About";
 import {Party} from "./models/party/Party";
 import { PlaylistPass } from './models/playlistPass/PlaylistPass';
+import { RightBar } from './components/rightBar/RightBar';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route exact path="/pass" component={PlaylistPass}/>
                 </Switch>
             </div>
+            <RightBar/>
             <Footer/>
         </Router>
     );
