@@ -1,5 +1,4 @@
 import React from "react";
-import {Card} from "../../components/card/Card";
 import './Party.css';
 import {QueueSongs} from "../../components/queueSongs/QueueSongs";
 import { PassCounter } from "../../components/passCounter/PassCounter";

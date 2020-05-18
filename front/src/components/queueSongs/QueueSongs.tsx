@@ -1,18 +1,18 @@
 import React from "react";
-import {Card} from "../card/Card";
+import {SongModel} from "../songModel/SongModel";
 import './QueueSongs.css'
 
 export const QueueSongs = () => {
 
     return (
         <div className='QueueSongs'>
-            <Card name='The only exception' artist="Paramore" position={1}/>
-            <Card name='The only exception' artist="Paramore" position={2}/>
-            <Card name='The only exception' artist="Paramore" position={3}/>
-            <Card name='The only exception' artist="Paramore" position={4}/>
-            <Card name='The only exception' artist="Paramore" position={5}/>
-            <Card name='The only exception' artist="Paramore" position={6}/>
-            <Card name='The only exception' artist="Paramore" position={7}/>
+            <SongModel name='The only exception' artist="Paramore" position={1}/>
+            <SongModel name='The only exception' artist="Paramore" position={2}/>
+            <SongModel name='The only exception' artist="Paramore" position={3}/>
+            <SongModel name='The only exception' artist="Paramore" position={4}/>
+            <SongModel name='The only exception' artist="Paramore" position={5}/>
+            <SongModel name='The only exception' artist="Paramore" position={6}/>
+            <SongModel name='The only exception' artist="Paramore" position={7}/>
         </div>
     );
 };
