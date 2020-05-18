@@ -2,11 +2,16 @@ import React from 'react';
 import './RightBar.css';
 import { TopParty } from './topParty/TopParty';
 
-export const RightBar = () =>{
+export const RightBar = () => {
 
-    return(
+    return (
         <div className='RightBar'>
-            <TopParty/>
+            <ol>
+                <li><TopParty views={30} name='Best Party ever' currentSong='The Only Exception' /></li>
+                <li><TopParty views={30} name='Best Party ever' currentSong='The Only Exception' /></li>
+                <li><TopParty views={30} name='Best Party ever' currentSong='The Only Exception' /></li>
+                <li><TopParty views={30} name='Best Party ever' currentSong='The Only Exception' /></li>
+            </ol>
         </div>
     );
 };
