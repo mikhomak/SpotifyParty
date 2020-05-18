@@ -1,11 +1,11 @@
 import React from "react";
 import {Card} from "../card/Card";
-import './QueueCards.css'
+import './QueueSongs.css'
 
-export const QueueCards = () => {
+export const QueueSongs = () => {
 
     return (
-        <div className='QueueCards'>
+        <div className='QueueSongs'>
             <Card name='The only exception' artist="Paramore" position={1}/>
             <Card name='The only exception' artist="Paramore" position={2}/>
             <Card name='The only exception' artist="Paramore" position={3}/>

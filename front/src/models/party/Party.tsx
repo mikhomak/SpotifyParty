@@ -1,7 +1,7 @@
 import React from "react";
 import {Card} from "../../components/card/Card";
 import './Party.css';
-import {QueueCards} from "../../components/queueCards/QueueCards";
+import {QueueSongs} from "../../components/queueSongs/QueueSongs";
 import { PassCounter } from "../../components/passCounter/PassCounter";
 
 interface PartyProps {
@@ -18,7 +18,7 @@ export class Party extends React.Component<PartyProps, PartyState> {
 
         return (
             <div className='Party'>
-                <QueueCards/>
+                <QueueSongs/>
                 <PassCounter counter={2}/>
             </div>
         );
