@@ -1,5 +1,5 @@
 import React from "react";
-import {SongModel} from "../songModel/SongModel";
+import {SongModel} from "./songModel/SongModel";
 import './QueueSongs.css'
 
 export const QueueSongs = () => {
