@@ -6,6 +6,7 @@ import {Navbar} from "./components/navbar/Navbar";
 import {Footer} from "./components/footer/Footer";
 import {About} from "./models/about/About";
 import {Party} from "./models/party/Party";
+import { PlaylistPass } from './models/playlistPass/PlaylistPass';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route exact path="/join" component={Main}/>
                     <Route exact path="/about" component={About}/>
                     <Route exact path="/party" component={Party}/>
+                    <Route exact path="/pass" component={PlaylistPass}/>
                 </Switch>
             </div>
             <Footer/>
