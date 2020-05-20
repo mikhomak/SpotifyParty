@@ -1,8 +1,9 @@
 import React from "react";
 import './Party.css';
-import {QueueSongs} from "../../components/queueSongs/QueueSongs";
+import { QueueSongs } from "../../components/queueSongs/QueueSongs";
 import { PassCounter } from "../../components/passCounter/PassCounter";
 import { PartyControls } from "../../components/partyControls/PartyControls";
+import { MembersList } from "../../components/membersList/MembersList";
 
 interface PartyProps {
 
@@ -18,9 +19,14 @@ export class Party extends React.Component<PartyProps, PartyState> {
 
         return (
             <div className='Party'>
-                <QueueSongs/>
-                <PassCounter counter={2}/>
-                <PartyControls />
+                <div>
+                    <QueueSongs />
+                </div>
+                <div className='BottomPart'>
+                    <MembersList />
+                    <PartyControls />
+                    <div></div>
+                </div>
             </div>
         );
     }

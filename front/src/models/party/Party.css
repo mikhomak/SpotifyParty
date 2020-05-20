@@ -5,5 +5,17 @@
     flex-direction: column;
     height: 700px;
     padding-top: 100px;
+    margin-right: 200px;
+    margin-left: 160px;
 }
 
+
+.TopPart{
+
+}
+
+.BottomPart{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
