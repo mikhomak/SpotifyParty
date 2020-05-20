@@ -17,8 +17,8 @@ export const PartyControls = () => {
 
 
     return (
-        <div>
-            <Button name='Pass???' actionEvent={f} />
+        <div className='PartyControls'>
+            <Button name='Vote for pass' actionEvent={f} />
             <Button name='Add song' actionEvent={s} />
         </div>
     );

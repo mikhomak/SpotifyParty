@@ -1,0 +1,7 @@
+.PartyControls{
+    padding-top: 10px;
+}
+
+.PartyControls * {
+    margin: 10px;
+}
