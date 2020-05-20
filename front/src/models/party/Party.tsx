@@ -19,7 +19,7 @@ export class Party extends React.Component<PartyProps, PartyState> {
 
         return (
             <div className='Party'>
-                <div>
+                <div className='TopPart'>
                     <QueueSongs />
                 </div>
                 <div className='BottomPart'>
