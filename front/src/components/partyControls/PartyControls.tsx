@@ -1,14 +1,25 @@
-import React from "react";
-import {CreateParty} from "../createParty/CreateParty";
-import {JoinPart} from "../joinParty/JoinParty";
+import React from 'react';
 import './PartyControls.css';
+import { Button } from '../UI/button/Button';
 
 export const PartyControls = () => {
+
+
+
+    function f() {
+
+    }
+
+
+    function s() {
+
+    }
+
+
     return (
-        <div className="PartyControl">
-            <CreateParty/>
-            <span>OR</span>
-            <JoinPart/>
+        <div>
+            <Button name='Pass???' actionEvent={f} />
+            <Button name='Add song' actionEvent={s} />
         </div>
     );
 };
