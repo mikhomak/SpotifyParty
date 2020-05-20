@@ -4,6 +4,13 @@
     padding-top: 10px;
 }
 
+.TopParty:hover{
+    background-color: rgb(154,154,154);
+}
+
+.Link{
+    text-decoration: none;
+}
 .FirstRow{
     color: rgb(230, 230, 230);
     font-size: 17px;
@@ -12,5 +19,4 @@
 .SecondRow{
     font-size: 14px;
     color: rgb(179, 179, 179);
-
 }
