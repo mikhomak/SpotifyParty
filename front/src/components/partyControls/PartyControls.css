@@ -1,5 +1,7 @@
 .PartyControls{
     padding-top: 10px;
+    align-content: center;
+    flex-grow: -1;
 }
 
 .PartyControls * {
