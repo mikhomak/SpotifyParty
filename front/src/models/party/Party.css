@@ -17,6 +17,6 @@
 .BottomPart{
     padding-top: 120px;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display:flex;
+    justify-content:flex-end;
 }

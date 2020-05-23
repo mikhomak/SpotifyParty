@@ -1,11 +1,12 @@
 .PartyControls{
     max-width: 300px;
     margin-bottom: 100px;
+    margin: auto;
 }
 
 .PartyControls * {
-    margin: 10px;
 }
+
 
 .Buttons {
 
