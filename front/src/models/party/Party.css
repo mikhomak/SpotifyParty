@@ -1,7 +1,5 @@
 .Party{
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     height: 700px;
     padding-top: 100px;
@@ -11,12 +9,14 @@
 
 
 .TopPart{
+    height:50%;
     display: flex;
     width: 100%;
 }
 
 .BottomPart{
+    padding-top: 120px;
     width: 100%;
-    text-align: center;
-
+    display: flex;
+    justify-content: space-between;
 }

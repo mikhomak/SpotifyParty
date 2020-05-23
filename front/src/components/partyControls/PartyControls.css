@@ -1,7 +1,6 @@
 .PartyControls{
-    padding-top: 10px;
     max-width: 300px;
-    align-content: center;
+    margin-bottom: 100px;
 }
 
 .PartyControls * {
