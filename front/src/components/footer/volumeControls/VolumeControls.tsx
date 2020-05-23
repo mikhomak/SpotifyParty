@@ -6,7 +6,6 @@ export const VolumeControls = () => {
     return (
         <div className="VolumeControls">
             <span>volume</span>
-            
         </div>
     );
 };

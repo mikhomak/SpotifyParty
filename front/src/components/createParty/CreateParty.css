@@ -1,0 +1,13 @@
+.CreateParty{
+    margin: 10px;
+}
+
+
+.CreateParty button{
+    margin: auto;
+    background-color: lightgreen;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
