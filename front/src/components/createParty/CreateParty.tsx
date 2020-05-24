@@ -36,7 +36,6 @@ export class CreateParty extends React.Component<CreatePartyProps, CreatePartySt
             <div className='CreateParty'>
                 <span>Name:</span>
                 <Input placeholder='Name of the partty' onChangeEvent={this.saveName}/>
-                {this.state.name}
                 <span>Public?</span><br />
                 <input type='radio' /> Private <br />
                 <input type='radio' /> Public<br />
