@@ -10,10 +10,15 @@ interface PartyProps {
 }
 
 interface PartyState {
-
+    skiping: boolean;
 }
 
 export class Party extends React.Component<PartyProps, PartyState> {
+
+
+    toggleSkiping() {
+        this.setState{skiping: !this.state.skiping};
+    }
 
     render() {
 
@@ -24,7 +29,7 @@ export class Party extends React.Component<PartyProps, PartyState> {
                 </div>
                 <div className='BottomPart'>
                     <MembersList />
-                    <PartyControls />
+                    <PartyControls toggleSkiping={this.toggleSkiping} />
                     <div></div>
                 </div>
             </div>

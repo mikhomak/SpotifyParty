@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "../UI/button/Button";
-import { Input } from "../UI/input/Input";
+import { Button } from "../../components/UI/button/Button";
+import { Input } from "../../components/UI/input/Input";
 import './CreateParty.css';
 
 interface CreatePartyProps {

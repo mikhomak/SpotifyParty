@@ -1,5 +1,5 @@
 import React from "react";
-import {CreateParty} from "../createParty/CreateParty";
+import {CreateParty} from "../../models/createParty/CreateParty";
 import {JoinPart} from "../joinParty/JoinParty";
 import './CreatePartyControls.css';
 
