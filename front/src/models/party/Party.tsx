@@ -17,7 +17,7 @@ export class Party extends React.Component<PartyProps, PartyState> {
 
 
     toggleSkiping() {
-        this.setState{skiping: !this.state.skiping};
+        this.setState({skiping: !this.state.skiping});
     }
 
     render() {
