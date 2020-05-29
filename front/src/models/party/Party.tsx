@@ -15,6 +15,13 @@ interface PartyState {
 
 export class Party extends React.Component<PartyProps, PartyState> {
 
+    constructor(props: PartyProps){
+        super(props);
+        this.state ={
+            skiping: false
+        }
+        this.toggleSkiping=this.toggleSkiping.bind(this);
+    }
 
     toggleSkiping() {
         this.setState({skiping: !this.state.skiping});
