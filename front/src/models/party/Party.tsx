@@ -37,7 +37,6 @@ export class Party extends React.Component<PartyProps, PartyState> {
                 <div className='BottomPart'>
                     <MembersList />
                     <PartyControls toggleSkiping={this.toggleSkiping} />
-                    <div></div>
                 </div>
             </div>
         );

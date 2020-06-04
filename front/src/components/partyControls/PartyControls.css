@@ -1,13 +1,11 @@
 .PartyControls{
-    max-width: 300px;
-    margin-bottom: 100px;
-    margin: auto;
+    width: 100%;
+    text-align: center;
+    flex-grow: 4;
+    padding-right: 100px;
 }
 
-.PartyControls * {
-}
 
-
-.Buttons {
-
+.Buttons *{
+    margin: 10px;
 }
