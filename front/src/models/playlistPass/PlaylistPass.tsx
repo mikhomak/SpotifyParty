@@ -12,8 +12,6 @@ interface PlaylistPassState {
 
 
 export class PlaylistPass extends React.Component<PlaylistPassProps, PlaylistPassState> {
-
-
     render(){
         return(
             <div>
