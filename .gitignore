@@ -63,7 +63,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-/enviroments/*
+enviroments/*
 .env
 .env.test
 
@@ -87,3 +87,5 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+!/enviroments/dev.env
+!/enviroments/
