@@ -89,3 +89,5 @@ enviroments/*
 .dynamodb/
 !/enviroments/dev.env
 !/enviroments/
+
+enviroments/
