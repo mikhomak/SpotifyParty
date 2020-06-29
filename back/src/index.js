@@ -9,9 +9,6 @@ const port = 3500; // default port to listen
 
 
 app.get("/", (req, res) => {
-
-    
-console.log(process.env.SPOTIFY_CLIENT_ID);
     res.send("Hello world!");
 });
 
@@ -30,8 +27,8 @@ app.get('/yes', function (req, res) {
 })
 
 // start the Express server
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
 
 
-    console.log(`server started at http://localhost:${port}`);
+    console.log(`server started at http://localhost:${process.env.PORT}`);
 });
