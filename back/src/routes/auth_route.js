@@ -2,6 +2,23 @@ const express = require("express");
 const app = express();
 const dotenv = require('dotenv');
 
+
+const authController = require('../controller/auth.conttroller');
+
+
+
+
+
+
+
+
+module.exports = (router) => {
+    router.post("/login", authController.login);
+};
+
+
+
+
 const SpotifyStrategy = require('passport-spotify').Strategy;
 passport.use(
     new SpotifyStrategy(

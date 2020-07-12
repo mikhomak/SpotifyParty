@@ -3,14 +3,22 @@ const express = require("express");
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
-const port = 3500; // default port to listen
-// define a route handler for the default home page
+
+
+// Routes
+const router = express.Router();
+const AuthRoute = require('./routes/auth.route');
 
 
 
-app.get("/", (req, res) => {
-    res.send("Hello world!");
-});
+app.set("port", process.env.PORT);
+
+
+app.use("api/auth", router);
+AuthRoute(router);
+
+app.use(express.json());
+app.use(router);
 
 app.get('/login', function (req, res) {
     var scopes = 'user-read-private user-read-email';
@@ -22,13 +30,7 @@ app.get('/login', function (req, res) {
 });
 
 
-app.get('/yes', function (req, res) {
-    console.log('yes');
-})
 
-// start the Express server
 app.listen(process.env.PORT, () => {
-
-
     console.log(`server started at http://localhost:${process.env.PORT}`);
 });
