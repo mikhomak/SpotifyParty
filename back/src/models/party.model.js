@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 mongoose.set("useCreateIndex", true);
 
-const playlistSchema = new Schema({
+const partySchema = new Schema({
     id: {
         type: String,
         required=true,
@@ -21,7 +21,11 @@ const playlistSchema = new Schema({
     songs: {
         type =[String],
         required=false
+    },
+    currentUsers: {
+        type=Number,
+        required=true
     }
 });
 
-mongoose.exports = playlistSchema;
+mongoose.exports = partySchema;
