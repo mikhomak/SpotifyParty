@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const dotenv = require('dotenv');
 const passport = require('passport');
+const mongoose = require('mongoose');
+const SpotifyStrategy = require('passport-spotify').Strategy;
 dotenv.config();
 
 
@@ -12,7 +14,6 @@ const AuthRoute = require('./routes/auth.route');
 
 
 
-const SpotifyStrategy = require('passport-spotify').Strategy;
 
 passport.use(
   new SpotifyStrategy(
@@ -28,12 +29,6 @@ passport.use(
     }
   )
 );
-
-
-
-
-
-
 
 
 app.set("port", process.env.PORT);
