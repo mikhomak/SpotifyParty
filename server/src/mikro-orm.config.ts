@@ -1,9 +1,9 @@
-import { PartyPlaylist } from './entites/PartyPlaylist';
+import { Party } from './entites/Party';
 import {__prod__} from './constants';
 import { MikroORM } from '@mikro-orm/core';
 
 export default {
-    entities: [PartyPlaylist],
+    entities: [Party],
     dbName: 'spotyfParty',
     type: 'postgresql',
     debug: !__prod__

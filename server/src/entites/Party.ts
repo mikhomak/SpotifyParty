@@ -1,7 +1,7 @@
 import { PrimaryKey, Property, Entity } from "@mikro-orm/core";
 
 @Entity()
-export class PartyPlaylist  {
+export class Party  {
     @PrimaryKey()
     id!: number;
 
