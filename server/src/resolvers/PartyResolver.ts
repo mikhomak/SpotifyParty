@@ -6,18 +6,18 @@ import { SpotifyPartyContext } from '../types';
 export class PartyResolver {
 
     @Query(() => PartyModel, { nullable: true })
-    party(
+    async party(
         @Arg('id', () => Int) id: number,
         @Ctx() { em }: SpotifyPartyContext
     ): Promise<PartyModel | null> {
-        return em.findOne(PartyModel, { id });
+        return await em.findOne(PartyModel, { id });
     }
 
     @Query(() => [PartyModel])
-    parties(
+    async parties(
         @Ctx() { em }: SpotifyPartyContext
     ): Promise<PartyModel[]> {
-        return em.find(PartyModel, {});
+        return await em.find(PartyModel, {});
     }
 
 
@@ -25,10 +25,43 @@ export class PartyResolver {
     async createParty(
         @Arg('name', () => String) name: String,
         @Ctx() { em }: SpotifyPartyContext
-    ): Promise<PartyModel | null> {
+    ): Promise<PartyModel> {
         const party = em.create(PartyModel, { name });
         await em.persistAndFlush(party);
         return party;
+    }
+
+    @Mutation(() => PartyModel, { nullable: true })
+    async updateParty(
+        @Arg('id', () => Int) id: number,
+        @Arg('name', () => String, { nullable: true }) name: String,
+        @Ctx() { em }: SpotifyPartyContext
+    ): Promise<PartyModel | null> {
+        const party = await em.findOne(PartyModel, { id });
+        if (!party) {
+            return null;
+        }
+
+        if (typeof name !== 'undefined') {
+            party.name = name;
+            await em.persistAndFlush(party);
+        }
+        return party;
+    }
+
+
+
+    @Mutation(() => Boolean)
+    async deleteParty(
+        @Arg('id', () => Int) id: number,
+        @Ctx() { em }: SpotifyPartyContext
+    ): Promise<boolean> {
+        try {
+            await em.nativeDelete(PartyModel, { id });
+        } catch{
+            return false;
+        }
+        return true;
     }
 
 }
