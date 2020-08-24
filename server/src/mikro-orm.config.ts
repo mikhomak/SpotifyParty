@@ -1,4 +1,4 @@
-import { PartyModel } from './entites/PartyModel';
+import { PartyModel } from './entities/PartyModel';
 import { __prod__ } from './constants';
 import { MikroORM } from '@mikro-orm/core';
 import path from 'path';
@@ -9,7 +9,7 @@ export default {
         pattern: /^[\w-]+\d+\.[tj]s$/,
     },
     entities: [PartyModel],
-    dbName: 'spotyfParty',
+    dbName: 'spotifyParty',
     type: 'postgresql',
     user: 'postgres',
     password: 'postgres',

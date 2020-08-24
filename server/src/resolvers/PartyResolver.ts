@@ -1,6 +1,6 @@
 import { Resolver, Query, Ctx, Arg, Int, Mutation } from 'type-graphql'
-import { PartyModel } from 'src/entites/PartyModel';
-import { SpotifyPartyContext } from 'src/types';
+import { PartyModel } from '../entities/PartyModel';
+import { SpotifyPartyContext } from '../types';
 
 @Resolver()
 export class PartyResolver {

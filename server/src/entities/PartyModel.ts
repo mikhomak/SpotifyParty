@@ -9,11 +9,11 @@ export class PartyModel {
     id!: number;
 
     @Field(() => String)
-    @Property({ onUpdate: () => new Date() })
+    @Property({ type: 'date' })
     createdAt: Date = new Date();
 
     @Field(() => String)
-    @Property()
+    @Property({ type: 'date', onUpdate: () => new Date() })
     updatedAt: Date = new Date();
 
     @Field(() => String)
