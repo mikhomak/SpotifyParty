@@ -1,5 +1,5 @@
-import { Party } from './entites/Party';
-import {__prod__} from './constants';
+import { PartyModel } from './entites/PartyModel';
+import { __prod__ } from './constants';
 import { MikroORM } from '@mikro-orm/core';
 import path from 'path';
 
@@ -8,7 +8,7 @@ export default {
         path: path.join(__dirname, "./migrations"),
         pattern: /^[\w-]+\d+\.[tj]s$/,
     },
-    entities: [Party],
+    entities: [PartyModel],
     dbName: 'spotyfParty',
     type: 'postgresql',
     user: 'postgres',
