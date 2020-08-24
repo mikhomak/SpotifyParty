@@ -1,34 +1,54 @@
 import { Resolver, Query, Ctx, Arg, Int, Mutation } from 'type-graphql'
 import { PartyModel } from '../entities/PartyModel';
 import { SpotifyPartyContext } from '../types';
+import { PartyService } from '../service/PartyService';
+import Container from 'typedi';
+import PartyResponse from './responses/PartyResponse';
 
 @Resolver()
 export class PartyResolver {
 
-    @Query(() => PartyModel, { nullable: true })
+
+    @Query(() => PartyResponse)
     async party(
-        @Arg('id', () => Int) id: number,
-        @Ctx() { em }: SpotifyPartyContext
-    ): Promise<PartyModel | null> {
-        return await em.findOne(PartyModel, { id });
+        @Arg('id', () => Int) id: number
+    ): Promise<PartyResponse> {
+        const party = await Container.get<PartyService>(PartyService).findParty(id);
+        if (party === null) {
+            return {
+                errors: [
+                    {
+                        field: 'name',
+                        message: 'Something went wrong while creating party'
+                    }
+                ]
+            }
+        }
+        return { party };
     }
 
     @Query(() => [PartyModel])
-    async parties(
-        @Ctx() { em }: SpotifyPartyContext
-    ): Promise<PartyModel[]> {
-        return await em.find(PartyModel, {});
+    async parties(): Promise<PartyModel[]> {
+        return await Container.get<PartyService>(PartyService).findAllParties();
     }
 
 
-    @Mutation(() => PartyModel)
+    @Mutation(() => PartyResponse)
     async createParty(
-        @Arg('name', () => String) name: String,
-        @Ctx() { em }: SpotifyPartyContext
-    ): Promise<PartyModel> {
-        const party = em.create(PartyModel, { name });
-        await em.persistAndFlush(party);
-        return party;
+        @Arg('name', () => String) name: String
+    ): Promise<PartyResponse> {
+        const party = await Container.get<PartyService>(PartyService).createParty(name);
+        if (party === null) {
+            return {
+                errors: [
+                    {
+                        field: 'name',
+                        message: 'Something went wrong while creating party'
+                    }
+                ]
+            }
+        }
+        return { party };
     }
 
     @Mutation(() => PartyModel, { nullable: true })

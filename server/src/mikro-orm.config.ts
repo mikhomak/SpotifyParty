@@ -2,13 +2,14 @@ import { PartyModel } from './entities/PartyModel';
 import { __prod__ } from './constants';
 import { MikroORM } from '@mikro-orm/core';
 import path from 'path';
+import { SongModel } from './entities/SongModel';
 
 export default {
     migrations: {
         path: path.join(__dirname, "./migrations"),
         pattern: /^[\w-]+\d+\.[tj]s$/,
     },
-    entities: [PartyModel],
+    entities: [PartyModel, SongModel],
     dbName: 'spotifyParty',
     type: 'postgresql',
     user: 'postgres',

@@ -1,15 +1,27 @@
 import "reflect-metadata";
-import { MikroORM } from '@mikro-orm/core';
+import { MikroORM, EntityRepository, EntityManager } from '@mikro-orm/core';
 import { __prod__ } from './constants';
 import mikroOrmConfig from './mikro-orm.config';
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql'
 import { PartyResolver } from './resolvers/PartyResolver';
+import { PartyModel } from "./entities/PartyModel";
+
+
+export const DAO = {} as {
+    orm: MikroORM,
+    em: EntityManager,
+    partyRepository: EntityRepository<PartyModel>
+};
+
 
 const main = async () => {
-    const orm = await MikroORM.init(mikroOrmConfig);
-    await orm.getMigrator().up();
+    // Setting up database
+    DAO.orm = await MikroORM.init(mikroOrmConfig);
+    await DAO.orm.getMigrator().up();
+    DAO.em = DAO.orm.em;
+    DAO.partyRepository = DAO.orm.em.getRepository(PartyModel);
 
     const app = express();
 
@@ -19,7 +31,7 @@ const main = async () => {
             resolvers: [PartyResolver],
             validate: false
         }),
-        context: () => ({ em: orm.em })
+        context: () => ({ em: DAO.orm.em })
     });
 
     apolloServer.applyMiddleware({ app });
@@ -29,6 +41,10 @@ const main = async () => {
     });
 };
 
+
+
+
 main().catch((err) => {
     console.error(err);
 });
+

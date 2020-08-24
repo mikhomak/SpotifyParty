@@ -8,7 +8,6 @@ export class SongModel {
     @PrimaryKey()
     id!: number;
 
-    
     @Field(() => String)
     @Property()
     name!: String;
@@ -33,5 +32,11 @@ export class SongModel {
     @Property()
     upVotes: number = 0;
 
+    @Field(() => String)
+    @Property({ type: 'date' })
+    createdAt: Date = new Date();
 
+    @Field(() => String)
+    @Property({ type: 'date', onUpdate: () => new Date() })
+    updatedAt: Date = new Date();
 }
