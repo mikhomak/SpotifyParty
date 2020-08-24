@@ -19,4 +19,5 @@ export class PartyModel {
     @Field(() => String)
     @Property()
     name: String;
+
 }
