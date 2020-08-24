@@ -11,7 +11,7 @@ export class PartyService {
     }
 
     async findParty(id: number): Promise<PartyModel | null> {
-        return await DAO.partyRepository.findOneOrFail({ id })
+        return await DAO.partyRepository.findOneOrFail( id )
             .catch((err) => {
                 console.log(err);
                 return null;
@@ -28,5 +28,27 @@ export class PartyService {
             return null;
         }
 
+    }
+
+    async updateParty(id: number, name: String): Promise<PartyModel | null> {
+        const party = await DAO.partyRepository.findOne({ id });
+        if (!party) {
+            return null;
+        }
+
+        if (typeof name !== 'undefined') {
+            party.name = name;
+            await DAO.partyRepository.persistAndFlush(party);
+        }
+        return party;
+    }
+
+    async deleteParty(id: number): Promise<boolean> {
+        try {
+            await DAO.partyRepository.nativeDelete({ id });
+        } catch{
+            return false;
+        }
+        return true;
     }
 }

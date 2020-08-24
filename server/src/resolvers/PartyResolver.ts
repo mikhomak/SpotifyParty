@@ -1,9 +1,9 @@
-import { Resolver, Query, Ctx, Arg, Int, Mutation } from 'type-graphql'
+import { Resolver, Query, Arg, Int, Mutation } from 'type-graphql'
 import { PartyModel } from '../entities/PartyModel';
-import { SpotifyPartyContext } from '../types';
 import { PartyService } from '../service/PartyService';
 import Container from 'typedi';
 import PartyResponse from './responses/PartyResponse';
+import { logErrorGraphql } from '../utils/logErrorGraphql';
 
 @Resolver()
 export class PartyResolver {
@@ -15,14 +15,7 @@ export class PartyResolver {
     ): Promise<PartyResponse> {
         const party = await Container.get<PartyService>(PartyService).findParty(id);
         if (party === null) {
-            return {
-                errors: [
-                    {
-                        field: 'name',
-                        message: 'Something went wrong while creating party'
-                    }
-                ]
-            }
+            return logErrorGraphql('id', 'Cant find party with this id : ' + id);
         }
         return { party };
     }
@@ -39,49 +32,29 @@ export class PartyResolver {
     ): Promise<PartyResponse> {
         const party = await Container.get<PartyService>(PartyService).createParty(name);
         if (party === null) {
-            return {
-                errors: [
-                    {
-                        field: 'name',
-                        message: 'Something went wrong while creating party'
-                    }
-                ]
-            }
+            return logErrorGraphql('name', 'someting went wrong while creating a party');
         }
         return { party };
     }
 
-    @Mutation(() => PartyModel, { nullable: true })
+    @Mutation(() => PartyResponse)
     async updateParty(
         @Arg('id', () => Int) id: number,
-        @Arg('name', () => String, { nullable: true }) name: String,
-        @Ctx() { em }: SpotifyPartyContext
-    ): Promise<PartyModel | null> {
-        const party = await em.findOne(PartyModel, { id });
-        if (!party) {
-            return null;
+        @Arg('name', () => String, { nullable: true }) name: String
+    ): Promise<PartyResponse> {
+        const party = await Container.get<PartyService>(PartyService).updateParty(id, name);
+        if (party === null) {
+            return logErrorGraphql('id', 'Cant find party with this id : ' + id);
         }
-
-        if (typeof name !== 'undefined') {
-            party.name = name;
-            await em.persistAndFlush(party);
-        }
-        return party;
+        return { party };
     }
 
 
 
     @Mutation(() => Boolean)
     async deleteParty(
-        @Arg('id', () => Int) id: number,
-        @Ctx() { em }: SpotifyPartyContext
-    ): Promise<boolean> {
-        try {
-            await em.nativeDelete(PartyModel, { id });
-        } catch{
-            return false;
-        }
-        return true;
+        @Arg('id', () => Int) id: number): Promise<boolean> {
+        return await Container.get<PartyService>(PartyService).deleteParty(id);
     }
 
 }
