@@ -21,6 +21,7 @@ const apollo_server_express_1 = require("apollo-server-express");
 const type_graphql_1 = require("type-graphql");
 const PartyResolver_1 = require("./resolvers/PartyResolver");
 const PartyModel_1 = require("./entities/PartyModel");
+const cors_1 = __importDefault(require("cors"));
 exports.DAO = {};
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     exports.DAO.orm = yield core_1.MikroORM.init(mikro_orm_config_1.default);
@@ -28,6 +29,10 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     exports.DAO.em = exports.DAO.orm.em;
     exports.DAO.partyRepository = exports.DAO.orm.em.getRepository(PartyModel_1.PartyModel);
     const app = express_1.default();
+    app.use(cors_1.default({
+        origin: 'http://localhost:3700/',
+        credentials: true
+    }));
     const apolloServer = new apollo_server_express_1.ApolloServer({
         schema: yield type_graphql_1.buildSchema({
             resolvers: [PartyResolver_1.PartyResolver],
@@ -35,7 +40,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         }),
         context: () => ({ em: exports.DAO.orm.em })
     });
-    apolloServer.applyMiddleware({ app });
+    apolloServer.applyMiddleware({ app, cors: false });
     app.listen(3700, () => {
         console.log("server started on port 3700");
     });

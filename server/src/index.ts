@@ -7,7 +7,7 @@ import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql'
 import { PartyResolver } from './resolvers/PartyResolver';
 import { PartyModel } from "./entities/PartyModel";
-
+import cors from 'cors';
 
 export const DAO = {} as {
     orm: MikroORM,
@@ -25,6 +25,12 @@ const main = async () => {
 
     const app = express();
 
+    app.use(
+        cors({
+            origin: 'http://localhost:3700/',
+            credentials : true
+        })
+    );
 
     const apolloServer = new ApolloServer({
         schema: await buildSchema({
@@ -34,7 +40,7 @@ const main = async () => {
         context: () => ({ em: DAO.orm.em })
     });
 
-    apolloServer.applyMiddleware({ app });
+    apolloServer.applyMiddleware({ app, cors: false });
 
     app.listen(3700, () => {
         console.log("server started on port 3700");
