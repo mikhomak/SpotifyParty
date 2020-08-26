@@ -1,5 +1,6 @@
 import React from 'react';
 import './PassCounter.css';
+
 interface PassCounterProps {
     counter: number;
 };

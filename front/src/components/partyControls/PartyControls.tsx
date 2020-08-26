@@ -1,6 +1,5 @@
 import React from 'react';
 import './PartyControls.css';
-import { Button } from '../UI/button/Button';
 import { PassCounter } from '../passCounter/PassCounter';
 
 
@@ -27,8 +26,8 @@ export const PartyControls:React.FC<PartyControlsProps>= (props) => {
         <div className='PartyControls'>
             <PassCounter counter={5} />
             <div className='Buttons'>
-                <Button name='Vote for pass' actionEvent={props.toggleSkiping} />
-                <Button name='Add song' actionEvent={s} />
+                {/* <Button name='Vote for pass' actionEvent={props.toggleSkiping} />
+                <Button name='Add song' actionEvent={s} /> */}
             </div>
         </div>
     );

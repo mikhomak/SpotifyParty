@@ -1,12 +1,10 @@
 import React from "react";
-import { Button } from "../../components/UI/button/Button";
-import { Input } from "../../components/UI/input/Input";
 import './CreateParty.css';
 import { Formik, Form } from 'formik';
 import { useCreatePartyMutation } from "../../generated/graphql";
 import { toErrorMap } from "../../utils/toErrorMap";
 import { InputField } from "../../components/UI/inputField/InputFields";
-import { Box, Radio, RadioGroup } from "@chakra-ui/core";
+import { Button, Box, Radio, RadioGroup } from "@chakra-ui/core";
 
 interface CreatePartyProps {
 
@@ -40,14 +38,17 @@ export const CreateParty = () => {
                 {({ isSubmitting }) => (
                     <Form>
                         <InputField name="name" placeholder="enter name..." label="Name of the Party" />
-                        <RadioGroup defaultValue="2" spacing={5} isInline>
-                            <Radio value="1">
-                                Radio
+                        <RadioGroup defaultValue="false" spacing={80} isInline alignContent="center">
+                            <Radio variantColor="green" value="false">
+                                Public
                             </Radio>
-                            <Radio value="2">
-                                Radio
+                            <Radio variantColor="red" value="true">
+                                Private
                             </Radio>
                         </RadioGroup>
+                        <Button variantColor="teal" variant="solid">
+                            Create
+                        </Button>
                     </Form>
                 )}
             </Formik>
