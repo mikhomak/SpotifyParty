@@ -93,4 +93,4 @@ enviroments/*
 enviroments/
 
 server/dist/
-generated/
+server/migrations/

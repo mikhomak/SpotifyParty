@@ -2,49 +2,47 @@ import React from "react";
 import { Button } from "../../components/UI/button/Button";
 import { Input } from "../../components/UI/input/Input";
 import './CreateParty.css';
+import { Formik } from 'formik';
+import { useCreatePartyMutation } from "../../generated/graphql";
 
 interface CreatePartyProps {
 
 }
 
 interface CreatePartyState {
-    name?: string;  
-    private?: boolean;
+
 }
 
 
-export class CreateParty extends React.Component<CreatePartyProps, CreatePartyState> {
+export const CreateParty = () => {
 
-    constructor(props: CreatePartyProps) {
-        super(props);
 
-        this.state = {
-            name: ''
-        };
-        this.saveName=this.saveName.bind(this);
-    }
+    const [,createParty] = useCreatePartyMutation();
 
-    saveName(e: React.ChangeEvent<HTMLInputElement>) {
-        console.log(e.target.value)
-        this.setState({name: e.target.value});
-    }
+    return (
+        <div className='CreateParty'>
 
-    f(){}
 
-    render() {
-        return (
-            <div className='CreateParty'>
-                <span>Name:</span>
-                <Input placeholder='Name of the partty' onChangeEvent={this.saveName}/>
-                <span>Public?</span><br />
-                <input type='radio' /> Private <br />
-                <input type='radio' /> Public<br />
-                <div className="Buttons">
-                    <Button actionEvent={this.f} name='Create' />
-                </div>
+            <Formik
+            initialValues={{name: "", isPrivate: false}}
+            onSubmit={async (values,{setErrors})=>{
+                const response = await createParty();
+            }}>
+
+            </Formik>
+
+
+
+            <span>Name:</span>
+            <Input placeholder='Name of the partty' onChangeEvent={this.saveName} />
+            <span>Public?</span><br />
+            <input type='radio' /> Private <br />
+            <input type='radio' /> Public<br />
+            <div className="Buttons">
+                <Button actionEvent={this.f} name='Create' />
             </div>
-        );
-    };
+        </div>
+    );
 
 
 };

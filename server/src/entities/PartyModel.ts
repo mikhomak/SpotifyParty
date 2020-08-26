@@ -20,4 +20,8 @@ export class PartyModel {
     @Property()
     name: String;
 
+    @Field(() => Boolean)
+    @Property({ type: 'boolean', nullable: true})
+    isPrivate: boolean = false;
+
 }
