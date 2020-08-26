@@ -41,6 +41,7 @@ export type PartyModel = {
   createdAt: Scalars['String'];
   updatedAt: Scalars['String'];
   name: Scalars['String'];
+  isPrivate: Scalars['Boolean'];
 };
 
 export type Mutation = {
@@ -52,6 +53,7 @@ export type Mutation = {
 
 
 export type MutationCreatePartyArgs = {
+  isPrivate: Scalars['Boolean'];
   name: Scalars['String'];
 };
 
@@ -68,6 +70,7 @@ export type MutationDeletePartyArgs = {
 
 export type CreatePartyMutationVariables = Exact<{
   name: Scalars['String'];
+  isPrivate: Scalars['Boolean'];
 }>;
 
 
@@ -80,15 +83,15 @@ export type CreatePartyMutation = (
       & Pick<FieldError, 'field' | 'message'>
     )>>, party?: Maybe<(
       { __typename?: 'PartyModel' }
-      & Pick<PartyModel, 'id' | 'name'>
+      & Pick<PartyModel, 'id' | 'name' | 'isPrivate'>
     )> }
   ) }
 );
 
 
 export const CreatePartyDocument = gql`
-    mutation CreateParty($name: String!) {
-  createParty(name: $name) {
+    mutation CreateParty($name: String!, $isPrivate: Boolean!) {
+  createParty(name: $name, isPrivate: $isPrivate) {
     errors {
       field
       message
@@ -96,6 +99,7 @@ export const CreatePartyDocument = gql`
     party {
       id
       name
+      isPrivate
     }
   }
 }

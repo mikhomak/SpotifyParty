@@ -18,9 +18,9 @@ export class PartyService {
             })
     }
 
-    async createParty(name: String): Promise<PartyModel | null> {
+    async createParty(name: String, isPrivate: boolean): Promise<PartyModel | null> {
         try {
-            const party = DAO.partyRepository.create({ name: name });
+            const party = DAO.partyRepository.create({ name: name , isPrivate : isPrivate});
             await DAO.partyRepository.persistAndFlush(party);
             return party;
         } catch (error) {

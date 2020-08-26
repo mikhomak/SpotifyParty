@@ -4,6 +4,7 @@ import { Input } from "../../components/UI/input/Input";
 import './CreateParty.css';
 import { Formik } from 'formik';
 import { useCreatePartyMutation } from "../../generated/graphql";
+import { toErrorMap } from "../../utils/toErrorMap";
 
 interface CreatePartyProps {
 
@@ -26,7 +27,10 @@ export const CreateParty = () => {
             <Formik
             initialValues={{name: "", isPrivate: false}}
             onSubmit={async (values,{setErrors})=>{
-                const response = await createParty();
+                const response = await createParty(values);
+                if(response.data?.createParty.errors){
+                    setErrors(toErrorMap(response.data.createParty.errors));
+                }
             }}>
 
             </Formik>

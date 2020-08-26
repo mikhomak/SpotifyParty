@@ -28,9 +28,10 @@ export class PartyResolver {
 
     @Mutation(() => PartyResponse)
     async createParty(
-        @Arg('name', () => String) name: String
+        @Arg('name', () => String) name: String,
+        @Arg('isPrivate', () => Boolean) isPrivate: boolean
     ): Promise<PartyResponse> {
-        const party = await Container.get<PartyService>(PartyService).createParty(name);
+        const party = await Container.get<PartyService>(PartyService).createParty(name, isPrivate);
         if (party === null) {
             return logErrorGraphql('name', 'someting went wrong while creating a party');
         }

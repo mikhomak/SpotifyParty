@@ -1,6 +1,6 @@
-mutation CreateParty($name :String!)
+mutation CreateParty($name :String!, $isPrivate: Boolean!)
 {
-  createParty(name:$name){
+  createParty(name:$name, isPrivate: $isPrivate){
     errors{
       field
       message
@@ -8,6 +8,7 @@ mutation CreateParty($name :String!)
     party{
       id
       name
+      isPrivate
     }
   }
 }
