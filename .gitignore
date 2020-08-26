@@ -93,3 +93,4 @@ enviroments/*
 enviroments/
 
 server/dist/
+generated/

@@ -1,0 +1,13 @@
+mutation CreateParty($name :String!)
+{
+  createParty(name:$name){
+    errors{
+      field
+      message
+    }
+    party{
+      id
+      name
+    }
+  }
+}
