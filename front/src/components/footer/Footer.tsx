@@ -9,7 +9,7 @@ export const Footer = () => {
 
 
     return (
-        <Box gridRow='7' gridColumn='span 7' w='100%'
+        <Box gridRow='9' gridColumn='span 7' w='100%'
             backgroundColor='grey'
             justifyContent='space-between' alignItems='center' d='f'>
             <NowPlaying songName='The only exception' artistName='Paramore'

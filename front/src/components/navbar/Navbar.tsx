@@ -5,7 +5,7 @@ import { Box } from '@chakra-ui/core'
 
 export const Navbar = () => {
     return (
-        <Box gridColumn='1' gridRow='span 6' backgroundColor='black' >
+        <Box gridColumn='1' gridRow='span 8' backgroundColor='black' >
             <NavbarItem name="current party" url="/party/" />
             <NavbarItem name="join party" url="/join" />
             <NavbarItem name="create party" url="/create" />
