@@ -1,5 +1,4 @@
 import React from "react";
-import './Main.css'
 import {CreatePartyControls} from "../../components/createPartyControls/CreatePartyControls";
 import { Button, Box, Radio, RadioGroup } from "@chakra-ui/core";
 

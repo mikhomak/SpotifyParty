@@ -6,7 +6,7 @@ import { Box , List } from '@chakra-ui/core'
 export const RightBar = () => {
 
     return (
-        <Box gridColumn='4' gridRow='1 / 3'>
+        <Box gridColumn='4' gridRow='span 3' background = 'yellow'>
             <List>
                 <TopParty views={1001} name='Best Party ever' currentSong='The Only Exception' id='1' />
                 <TopParty views={30} name='Best Party ever' currentSong='The Only Exception' id='2' />

@@ -1,5 +1,4 @@
 import React from "react";
-import './CreateParty.css';
 import { Formik, Form } from 'formik';
 import { useCreatePartyMutation } from "../../generated/graphql";
 import { toErrorMap } from "../../utils/toErrorMap";
