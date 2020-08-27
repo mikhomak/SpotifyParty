@@ -22,11 +22,10 @@ function App() {
             <CSSReset />
             <Provider value={client}>
                 <Router>
-                    <Grid gridTemplateColumns='repeat(4,1fr)'
-                        gridGap='10'
-                        gridTemplateRows='repeat(4,1fr)'>
+                    <Grid h='100vh' gridTemplateColumns='repeat(7,1fr)'
+                        gridTemplateRows='repeat(7,1fr)' >
                         <Navbar />
-                        <Box gridColumn='2 / 4' gridRow='span 3' background='red'>
+                        <Box  gridColumn='2 / 7' gridRow='span 6' background='red'>
                             <Switch>
                                 <Route exact path="/" component={Main} />
                                 <Route exact path="/create" component={Main} />
