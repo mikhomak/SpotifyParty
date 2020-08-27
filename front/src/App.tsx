@@ -9,8 +9,9 @@ import { Party } from "./models/party/Party";
 import { PlaylistPass } from './models/playlistPass/PlaylistPass';
 import { RightBar } from './components/rightBar/RightBar';
 import { Provider, createClient } from 'urql'
-import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import { Grid, ThemeProvider, CSSReset, Box } from '@chakra-ui/core'
 import customTheme from "./theme"
+
 
 
 const client = createClient({ url: 'http://localhost:3700/graphql' });
@@ -21,19 +22,23 @@ function App() {
             <CSSReset />
             <Provider value={client}>
                 <Router>
-                    <Navbar />
-                    <div className="App">
-                        <Switch>
-                            <Route exact path="/" component={Main} />
-                            <Route exact path="/create" component={Main} />
-                            <Route exact path="/join" component={Main} />
-                            <Route exact path="/about" component={About} />
-                            <Route exact path="/party/:id" component={Party} />
-                            <Route exact path="/pass" component={PlaylistPass} />
-                        </Switch>
-                    </div>
-                    <RightBar />
-                    <Footer />
+                    <Grid gridTemplateColumns='repeat(4,1fr)'
+                        gridGap='10'
+                        gridTemplateRows='repeat(4,1fr)'>
+                        <Navbar />
+                        <Box gridColumn='2' gridRow='1/3' background='red'>
+                            <Switch>
+                                <Route exact path="/" component={Main} />
+                                <Route exact path="/create" component={Main} />
+                                <Route exact path="/join" component={Main} />
+                                <Route exact path="/about" component={About} />
+                                <Route exact path="/party/:id" component={Party} />
+                                <Route exact path="/pass" component={PlaylistPass} />
+                            </Switch>
+                        </Box>
+                        <RightBar />
+                        <Footer />
+                    </Grid>
                 </Router>
             </Provider>
         </ThemeProvider>

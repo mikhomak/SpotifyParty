@@ -1,6 +1,7 @@
 import React from "react";
 import './Main.css'
 import {CreatePartyControls} from "../../components/createPartyControls/CreatePartyControls";
+import { Button, Box, Radio, RadioGroup } from "@chakra-ui/core";
 
 interface MainProps {
 
@@ -15,9 +16,9 @@ export class Main extends React.Component<MainProps, MainState> {
 
     render() {
         return (
-            <div className={"Main"}>
+            <Box>
                 <CreatePartyControls/>
-            </div>
+            </Box>
         );
     };
 }

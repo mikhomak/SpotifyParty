@@ -1,14 +1,16 @@
 import React from "react";
-import {CreateParty} from "../../models/createParty/CreateParty";
-import {JoinPart} from "../joinParty/JoinParty";
+import { CreateParty } from "../../models/createParty/CreateParty";
+import { JoinPart } from "../joinParty/JoinParty";
 import './CreatePartyControls.css';
+import { Button, Box, Radio, Flex } from "@chakra-ui/core";
+
 
 export const CreatePartyControls = () => {
     return (
-        <div className="CreatePartyControls">
-            <CreateParty/>
+        <Flex m='20' alignItems='center' flexDirection='column'>
+            <CreateParty />
             <span>OR</span>
-            <JoinPart/>
-        </div>
+            <JoinPart />
+        </Flex>
     );
 };

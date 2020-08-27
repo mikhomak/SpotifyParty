@@ -1,7 +1,7 @@
 import React from 'react';
 import './TopParty.css';
 import { Link } from 'react-router-dom'
-
+import { ListItem } from '@chakra-ui/core'
 
 interface TopPartyProps {
     views: number;
@@ -17,7 +17,7 @@ export const TopParty: React.FC<TopPartyProps> = (props) => {
     const link: string = "/party/" + props.id;
 
     return (
-        <li className='TopParty'>
+        <ListItem className='TopParty'>
             <Link className='Link' to={link} >
                 <div className='FirstRow'>
                     <span>{props.name}</span> <br />
@@ -27,6 +27,6 @@ export const TopParty: React.FC<TopPartyProps> = (props) => {
                     <span>{props.currentSong}</span>
                 </div>
             </Link>
-        </li>
+        </ListItem>
     );
 };
