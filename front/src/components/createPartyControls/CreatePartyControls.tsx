@@ -1,7 +1,7 @@
 import React from "react";
 import { CreateParty } from "../../models/createParty/CreateParty";
 import { JoinPart } from "../joinParty/JoinParty";
-import {  Flex } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
 
 
 export const CreatePartyControls = () => {
