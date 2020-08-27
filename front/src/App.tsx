@@ -25,7 +25,7 @@ function App() {
                     <Grid h='100vh' gridTemplateColumns='repeat(7,1fr)'
                         gridTemplateRows='repeat(7,1fr)' >
                         <Navbar />
-                        <Box  gridColumn='2 / 7' gridRow='span 6' background='red'>
+                        <Box  gridColumn='2 / 7' gridRow='span 6' backgroundColor='mainGrey'>
                             <Switch>
                                 <Route exact path="/" component={Main} />
                                 <Route exact path="/create" component={Main} />
