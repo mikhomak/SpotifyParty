@@ -35,17 +35,17 @@ export const CreateParty = () => {
                 }}>
                 {({ isSubmitting }) => (
                     <Form>
-                        <Box w='100%'  d='flex' flexDirection='column' >
-                        <InputField name="name" placeholder="enter name..." label="Name of the Party" />
-                        <RadioGroup defaultValue="false"   spacing={95} isInline justifySelf='center'>
-                            <Radio variantColor="green" value="false">
+                        <Box w='90%'  d='flex' flexDirection='column' >
+                        <InputField name="name" placeholder="enter name..." label="Name of the Party"  />
+                        <RadioGroup defaultValue="false" w='100%' justifyContent="space-between" display="flex" alignItems="center">
+                            <Radio variantColor="green" value="false" >
                                 Public
                             </Radio>
-                            <Radio variantColor="red" value="true">
+                            <Radio variantColor="red" value="true" right='auto'>
                                 Private
                             </Radio>
                         </RadioGroup>
-                        <Button variantColor="green" variant="solid" alignSelf='center' w='30%' >
+                        <Button variantColor="green" variant="solid" alignSelf='center' w='50%' >
                             Create
                         </Button>
                         </Box>
