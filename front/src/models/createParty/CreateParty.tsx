@@ -23,7 +23,7 @@ export const CreateParty = () => {
     function saveName(): void { };
 
     return (
-        <Box maxW='sm' w='100%' p={1} d='f' justifyContent='center'>
+        <Box maxW='sm' w='100%' pb={5} m={1} d='f' justifyContent='center'>
             <Formik
                 initialValues={{ name: "", isPrivate: false }}
                 onSubmit={async (values, { setErrors }) => {
@@ -34,9 +34,9 @@ export const CreateParty = () => {
                 }}>
                 {({ isSubmitting }) => (
                     <Form>
-                        <Box w='90%'  d='flex' flexDirection='column' >
+                        <Box  w='100%'  d='flex' flexDirection='column' >
                         <InputField name="name" placeholder="enter name..." label="Name of the Party"  />
-                        <RadioGroup defaultValue="false" w='100%' justifyContent="space-between" display="flex" alignItems="center">
+                        <RadioGroup mt={5} defaultValue="false" w='100%' justifyContent="space-between" display="flex" alignItems="center">
                             <Radio variantColor="green" value="false" >
                                 Public
                             </Radio>
@@ -44,7 +44,7 @@ export const CreateParty = () => {
                                 Private
                             </Radio>
                         </RadioGroup>
-                        <Button variantColor="green" variant="solid" alignSelf='center' w='50%' >
+                        <Button mt={5} variantColor="green" variant="solid" alignSelf='center' w='50%' >
                             Create
                         </Button>
                         </Box>
