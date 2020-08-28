@@ -1,23 +1,20 @@
 import React from "react";
 import { CreatePartyControls } from "../../components/createPartyControls/CreatePartyControls";
 import { Button, Box, Radio, RadioGroup } from "@chakra-ui/core";
+import { useLocation } from 'react-router-dom'
 
 interface MainProps {
 
 }
 
-interface MainState {
-    name: String;
-}
-
-export class Main extends React.Component<MainProps, MainState> {
 
 
-    render() {
-        return (
-            <Box w='100%' h='100%' d='f' alignItems='center' justifyContent='center' flexDirection='column'>
-                <CreatePartyControls />
-            </Box>
-        );
-    };
+export const Main = () => {
+
+    const location = useLocation();
+    return (
+        <Box w='100%' h='100%' d='f' alignItems='center' justifyContent='center' flexDirection='column'>
+            <CreatePartyControls create={location.pathname.endsWith('create')} />
+        </Box>
+    );
 }

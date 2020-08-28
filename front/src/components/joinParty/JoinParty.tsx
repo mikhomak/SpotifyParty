@@ -5,7 +5,7 @@ import { InputField } from "../UI/inputField/InputFields";
 import { Formik, Form } from "formik";
 import { toErrorMap } from "../../utils/toErrorMap";
 
-export const JoinPart = () => {
+export const JoinParty = () => {
 
     return (
         <Box m='auto' p={1} mt={3}>
@@ -17,7 +17,7 @@ export const JoinPart = () => {
                 {({ isSubmitting }) => (
                     <Form>
                         <Box w='100%'  d='flex' flexDirection='column' >
-                        <InputField name="name" placeholder="enter id..." label="Name of the Party"  />
+                        <InputField name="id" placeholder="enter id..." label="Join party"  />
                         <Button mt={5} variantColor="green" variant="solid" alignSelf='center' w='50%' >
                             join
                         </Button>
