@@ -8,6 +8,7 @@ import { buildSchema } from 'type-graphql'
 import { PartyResolver } from './resolvers/PartyResolver';
 import { PartyModel } from "./entities/PartyModel";
 import cors from 'cors';
+import * as spotifyAuth from './auth/spotifyAuth';
 
 export const DAO = {} as {
     orm: MikroORM,
@@ -28,7 +29,7 @@ const main = async () => {
     app.use(
         cors({
             origin: 'http://localhost:3700/',
-            credentials : true
+            credentials: true
         })
     );
 
@@ -41,6 +42,18 @@ const main = async () => {
     });
 
     apolloServer.applyMiddleware({ app, cors: false });
+
+
+
+    app.get('/spotifyLogin',
+        async function (req, res, next) {
+            res.redirect('https://google.com');
+        });
+
+    app.get('/spotifyCallback',
+        async function (req, res, next) {
+
+        });
 
     app.listen(3700, () => {
         console.log("server started on port 3700");

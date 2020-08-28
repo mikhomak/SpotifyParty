@@ -41,6 +41,15 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         context: () => ({ em: exports.DAO.orm.em })
     });
     apolloServer.applyMiddleware({ app, cors: false });
+    app.get('/spotifyLogin', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            res.redirect('https://google.com');
+        });
+    });
+    app.get('/spotifyCallback', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+        });
+    });
     app.listen(3700, () => {
         console.log("server started on port 3700");
     });
