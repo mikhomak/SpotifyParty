@@ -94,3 +94,4 @@ enviroments/
 
 server/dist/
 server/migrations/
+spotifyServer/dist/

@@ -8,7 +8,6 @@ import { buildSchema } from 'type-graphql'
 import { PartyResolver } from './resolvers/PartyResolver';
 import { PartyModel } from "./entities/PartyModel";
 import cors from 'cors';
-import * as spotifyAuth from './auth/spotifyAuth';
 
 export const DAO = {} as {
     orm: MikroORM,
