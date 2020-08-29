@@ -54,5 +54,6 @@
     "@graphql-codegen/typescript-urql": "^2.0.1",
     "@types/react-router-dom": "^5.1.5",
     "formik": "^2.1.5"
-  }
+  },
+  "proxy" : "http://localhost:3800"
 }
