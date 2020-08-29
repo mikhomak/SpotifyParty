@@ -27,8 +27,8 @@ const main = async () => {
 
     app.use(
         cors({
-            origin: 'http://localhost:3700/',
-            credentials: true
+            origin: 'http://localhost:3000',
+            credentials: true,
         })
     );
 
@@ -44,15 +44,6 @@ const main = async () => {
 
 
 
-    app.get('/spotifyLogin',
-        async function (req, res, next) {
-            res.redirect('https://google.com');
-        });
-
-    app.get('/spotifyCallback',
-        async function (req, res, next) {
-
-        });
 
     app.listen(3700, () => {
         console.log("server started on port 3700");

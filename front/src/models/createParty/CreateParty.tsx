@@ -36,7 +36,7 @@ export const CreateParty = () => {
                     <Form>
                         <Box  w='100%'  d='flex' flexDirection='column' >
                         <InputField name="name" placeholder="enter name..." label="Name of the Party"  />
-                        <RadioGroup mt={5} defaultValue="false" w='100%' justifyContent="space-between" display="flex" alignItems="center">
+                        <RadioGroup mt={5} name='isPrivate' defaultValue="false" w='100%' justifyContent="space-between" display="flex" alignItems="center">
                             <Radio variantColor="green" value="false" >
                                 Public
                             </Radio>
@@ -44,7 +44,7 @@ export const CreateParty = () => {
                                 Private
                             </Radio>
                         </RadioGroup>
-                        <Button mt={5} variantColor="green" variant="solid" alignSelf='center' w='50%' >
+                        <Button type='submit' mt={5} variantColor="green" variant="solid" alignSelf='center' w='50%' >
                             Create
                         </Button>
                         </Box>

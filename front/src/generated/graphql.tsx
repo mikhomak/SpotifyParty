@@ -88,6 +88,17 @@ export type CreatePartyMutation = (
   ) }
 );
 
+export type PartiesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PartiesQuery = (
+  { __typename?: 'Query' }
+  & { parties: Array<(
+    { __typename?: 'PartyModel' }
+    & Pick<PartyModel, 'id' | 'name'>
+  )> }
+);
+
 
 export const CreatePartyDocument = gql`
     mutation CreateParty($name: String!, $isPrivate: Boolean!) {
@@ -107,4 +118,16 @@ export const CreatePartyDocument = gql`
 
 export function useCreatePartyMutation() {
   return Urql.useMutation<CreatePartyMutation, CreatePartyMutationVariables>(CreatePartyDocument);
+};
+export const PartiesDocument = gql`
+    query Parties {
+  parties {
+    id
+    name
+  }
+}
+    `;
+
+export function usePartiesQuery(options: Omit<Urql.UseQueryArgs<PartiesQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<PartiesQuery>({ query: PartiesDocument, ...options });
 };

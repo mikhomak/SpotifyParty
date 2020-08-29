@@ -1,0 +1,6 @@
+query Parties{
+  parties{
+    id
+    name
+  }
+}
