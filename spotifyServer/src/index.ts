@@ -1,8 +1,8 @@
 
 import express from 'express';
 import cors from 'cors';
-import { PORT, SPOTIFY_TOKEN } from './constants';
-
+import { PORT, SPOTIFY_TOKEN, SPOTIFY_CLIENT_SECRET } from './constants';
+import request from 'request';
 
 const main = async () => {
 
@@ -28,9 +28,33 @@ const main = async () => {
 
     app.get('/spotifyCallback',
         async function (req, res, next) {
-            res.send('hey');
-            //res.redirect('https://amazon.com');
+
+            const code = req.query.code;
+
+            var authOptions = {
+                url: 'https://accounts.spotify.com/api/token',
+                form: {
+                    code: code,
+                    redirect_uri: 'http://localhost:3800/spotifyCallback',
+                    grant_type: 'authorization_code'
+                },
+                headers: {
+                    'Authorization': 'Basic ' + (Buffer.from(SPOTIFY_TOKEN + ':' + SPOTIFY_CLIENT_SECRET).toString('base64'))
+                },
+                json: true
+            };
+            request.post(authOptions, function (error, response, body) {
+                if (error) {
+                    console.log('damn')
+                }
+                else {
+                    console.log(response.body.access_token);
+                }
+            });
+
+
         });
+
     app.listen(PORT, () => {
         console.log("server started on port " + PORT);
     });

@@ -13,10 +13,14 @@ import { Grid, ThemeProvider, CSSReset, Box } from '@chakra-ui/core'
 import customTheme from "./theme"
 
 
-
 const client = createClient({ url: 'http://localhost:3700/graphql' });
 
+
+
 function App() {
+
+
+
     return (
         <ThemeProvider theme={customTheme}>
             <CSSReset />
@@ -25,7 +29,7 @@ function App() {
                     <Grid h='100vh' w='100vw' gridTemplateColumns='repeat(7,1fr)'
                         gridTemplateRows='repeat(9,1fr)' >
                         <Navbar />
-                        <Box  gridColumn='2 / 7' gridRow='span 8' backgroundColor='mainGrey'>
+                        <Box gridColumn='2 / 7' gridRow='span 8' backgroundColor='mainGrey'>
                             <Switch>
                                 <Route exact path="/" component={Main} />
                                 <Route exact path="/create" component={Main} />

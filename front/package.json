@@ -55,5 +55,5 @@
     "@types/react-router-dom": "^5.1.5",
     "formik": "^2.1.5"
   },
-  "proxy" : "http://localhost:3800"
+  "proxy": "http://localhost:3800"
 }
