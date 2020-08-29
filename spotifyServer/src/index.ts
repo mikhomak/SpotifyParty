@@ -29,7 +29,7 @@ const main = async () => {
     app.get('/spotifyCallback',
         async function (req, res, next) {
 
-            const code = req.query.code;
+            const code = req.query.code ?? null;
 
             var authOptions = {
                 url: 'https://accounts.spotify.com/api/token',
@@ -44,11 +44,11 @@ const main = async () => {
                 json: true
             };
             request.post(authOptions, function (error, response, body) {
-                if (error) {
-                    console.log('damn')
-                }
-                else {
-                    console.log(response.body.access_token);
+                if (error && response.statusCode !== 200) {
+                    res.redirect('/');
+                } else {
+                    res.cookie('token', body.access_token, { maxAge: 3600,sameSite:true });
+                    res.redirect('http://localhost:3000');
                 }
             });
 
