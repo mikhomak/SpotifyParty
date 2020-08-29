@@ -18,7 +18,7 @@ const main = async () => {
 
     app.get('/spotifyLogin',
         async function (req, res, next) {
-            const scopes = 'user-read-private user-read-email';
+            const scopes = 'streaming user-read-private user-read-email user-read-playback-state';
             res.redirect('https://accounts.spotify.com/authorize' +
                 '?response_type=code' +
                 '&client_id=' + SPOTIFY_TOKEN +
