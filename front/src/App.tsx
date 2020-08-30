@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Main } from "./models/main/Main";
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Navbar } from "./components/navbar/Navbar";
 import { Footer } from "./components/footer/Footer";
 import { About } from "./models/about/About";
@@ -22,45 +22,43 @@ function App() {
 
 
     async function isAuth(token: string) {
-        return await axios.post('/auth/isAuthtorized', { token: token })
+        return await axios.post('http://localhost:3800/auth/isAuthorized', { token: token })
             .then(res => { return res.status === 200; })
             .catch(error => { console.log(error); return false; })
     }
 
     const token: string | undefined = Cookies.get('token');
 
-    let app = <Footer/>;
-
     if (token === undefined || !isAuth(token === undefined ? '' : token)) {
-        app = <Box>oops</Box>;
+        window.location.replace('http://localhost:3800/auth/spotifyLogin');
     }
 
 
     return (
         <ThemeProvider theme={customTheme}>
-        <CSSReset />
-        <Provider value={client}>
             <Router>
-                <Grid h='100vh' w='100vw' gridTemplateColumns='repeat(7,1fr)'
-                    gridTemplateRows='repeat(9,1fr)' >
-                    <Navbar />
-                    <Box gridColumn='2 / 7' gridRow='span 8' backgroundColor='mainGrey'>
-                        <Switch>
-                            <Route exact path="/" component={Main} />
-                            <Route exact path="/create" component={Main} />
-                            <Route exact path="/join" component={Main} />
-                            <Route exact path="/about" component={About} />
-                            <Route exact path="/party/:id" component={Party} />
-                            <Route exact path="/pass" component={PlaylistPass} />
-                        </Switch>
-                    </Box>
-                    <RightBar />
-                    {app}
-                </Grid>
+                <CSSReset />
+                <Provider value={client}>
+                    <Grid h='100vh' w='100vw' gridTemplateColumns='repeat(7,1fr)'
+                        gridTemplateRows='repeat(9,1fr)' >
+                        <Navbar />
+                        <Box gridColumn='2 / 7' gridRow='span 8' backgroundColor='mainGrey'>
+                            <Switch>
+                                <Route exact path="/" component={Main} />
+                                <Route exact path="/create" component={Main} />
+                                <Route exact path="/join" component={Main} />
+                                <Route exact path="/about" component={About} />
+                                <Route exact path="/party/:id" component={Party} />
+                                <Route exact path="/pass" component={PlaylistPass} />
+                            </Switch>
+                        </Box>
+                        <RightBar />
+                        <Footer />
+                    </Grid>
+                </Provider>
             </Router>
-        </Provider>
-    </ThemeProvider>
-        );
+        </ThemeProvider>
+    );
 }
 
 export default App;

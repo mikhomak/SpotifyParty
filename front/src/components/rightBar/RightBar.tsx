@@ -8,7 +8,7 @@ export const RightBar = () => {
 
 
     const parties = usePartiesQuery();
-    const topParties = parties[0].data?.parties.map(party => <TopParty views={1} name={party.name} currentSong='sa' id={party.id.toString()} />);
+    const topParties = parties[0].data?.parties.map(party => <TopParty views={1} name={party.name} currentSong='sa' id={party.id.toString()} key={party.id.toString()} />);
     return (
         <Box gridColumn='7' gridRow='span 8' backgroundColor='black' >
             <List>

@@ -44,7 +44,7 @@ router.get('/spotifyCallback', async function (req, res, next) {
     });
 });
 
-router.post("isAuthorized", async function (req, res) {
+router.post("/isAuthorized", async function (req, res) {
     const token: string = req.body.token;
     const options = {
         url: 'https://api.spotify.com/v1/me',
@@ -55,5 +55,6 @@ router.post("isAuthorized", async function (req, res) {
     let isAuth: boolean = false;
     request.get(options, function (error, response, body) {
         isAuth = error && response.statusCode === 200;
+        res.statusCode = isAuth ? 200 : 403;
     });
 });
