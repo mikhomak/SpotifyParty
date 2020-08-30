@@ -31,7 +31,7 @@ export const InputField: React.FC<InputFieldProps> = ({
   return (
     <FormControl isInvalid={!!error} w='100%'>
       <FormLabel htmlFor={field.name} alignSelf='center'>{label}</FormLabel>
-      <InputOrTextarea {...field} {...props} id={field.name} />
+      <InputOrTextarea {...field} {...props} id={field.name} color='black'/>
       {error ? <FormErrorMessage>{error}</FormErrorMessage> : null}
     </FormControl>
   );
