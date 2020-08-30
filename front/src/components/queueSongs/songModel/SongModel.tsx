@@ -1,5 +1,6 @@
 import React from "react";
 import './SongModel.css';
+import { Box, Image, FormLabel } from "@chakra-ui/core";
 
 interface SongModelProps {
     name: string;
@@ -15,12 +16,16 @@ export const SongModel: React.FC<SongModelProps> = (props) => {
 
     const songModelImageStyle = songModelType + ' ' + songModelTypeBorder + ' ' + songModelTypeLast;
     return (
-        <div className={SongModel + ' ' + songModelImageStyle}>
-            <img src='https://i.scdn.co/image/ab67616d00001e020b73f9c0b28314ae14ad9e20' alt='s' className={songModelImageStyle}/>
-            <div className='label'>
-                <span>{props.name}</span><br/>
-                <span>{props.artist}</span>
-            </div>
-        </div>
+        <Box w='100%' d='flex' flexDirection='column' >
+            <Box d='f' alignItems='center' justifyContent='space-between'>
+                <FormLabel>1</FormLabel>
+                <FormLabel>2</FormLabel>
+            </Box>
+            <Image src='https://i.scdn.co/image/ab67616d00001e020b73f9c0b28314ae14ad9e20' />
+            <Box>
+                <FormLabel>{props.name}</FormLabel>
+                <FormLabel>{props.artist}</FormLabel>
+            </Box>
+        </Box>
     );
 };
