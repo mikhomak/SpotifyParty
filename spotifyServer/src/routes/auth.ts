@@ -48,7 +48,6 @@ router.get('/spotifyCallback', async function (req, res, next) {
 
 
 router.post("/isAuthorized", async function (req, res) {
-    console.log(req.body)
     const token: string = req.body.token;
     const options = {
         url: 'https://api.spotify.com/v1/me',

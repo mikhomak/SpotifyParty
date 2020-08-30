@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import './App.css';
+import React from 'react';
 import { Main } from "./models/main/Main";
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Navbar } from "./components/navbar/Navbar";
@@ -49,7 +48,7 @@ function App() {
         refresh_token = Cookies.get('refresh_token');
     }
 
-    setInterval(() => {
+    setInterval(async () => {
         refreshSpotyfToken();
     }, 3500 * 10);
 
