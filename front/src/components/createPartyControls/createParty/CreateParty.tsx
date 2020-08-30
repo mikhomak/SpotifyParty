@@ -1,35 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form } from 'formik';
-import { useCreatePartyMutation } from "../../generated/graphql";
-import { toErrorMap } from "../../utils/toErrorMap";
-import { InputField } from "../../components/UI/inputField/InputFields";
+import { useCreatePartyMutation } from "../../../generated/graphql";
+import { toErrorMap } from "../../../utils/toErrorMap";
+import { InputField } from "../../UI/inputField/InputFields";
 import { Button, Box, Radio, RadioGroup } from "@chakra-ui/core";
-
-interface CreatePartyProps {
-
-}
-
-interface CreatePartyState {
-
-}
+import { Redirect } from "react-router-dom";
 
 
 export const CreateParty = () => {
 
 
+    const [createdId, setCreatedId] = useState<number | undefined>(-1);
     const [, createParty] = useCreatePartyMutation();
 
-    function f(): void { };
-    function saveName(): void { };
+    const redirectUrl = '/party/' + createdId;
+    const redirect = createdId !== -1 ? <Redirect to={redirectUrl}/> : null;
 
     return (
         <Box maxW='sm' w='100%' pb={5} m={1} d='f' justifyContent='center'>
+            {redirect}
             <Formik
                 initialValues={{ name: "", isPrivate: false }}
                 onSubmit={async (values, { setErrors }) => {
                     const response = await createParty(values);
                     if (response.data?.createParty.errors) {
                         setErrors(toErrorMap(response.data.createParty.errors));
+                    }else{
+                        setCreatedId(response.data?.createParty.party?.id);
                     }
                 }}>
                 {({ isSubmitting }) => (

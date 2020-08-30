@@ -1,5 +1,5 @@
 import React from "react";
-import { CreateParty } from "../../models/createParty/CreateParty";
+import { CreateParty } from "./createParty/CreateParty";
 import { JoinParty } from "../joinParty/JoinParty";
 import { Flex, Text } from "@chakra-ui/core";
 
