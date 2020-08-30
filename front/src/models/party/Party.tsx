@@ -15,11 +15,11 @@ export const Party = () => {
 
     }
     return (
-        <Box pl='7%' pr='7%'>
+        <Box p='7%'>
             <Box>
                 <QueueSongs />
             </Box>
-            <Box>
+            <Box pt='5%' display='flex' alignItems='center' justifyContent='space-between'>
                 <MembersList />
                 <PartyControls toggleSkiping={toggleSkiping} />
             </Box>

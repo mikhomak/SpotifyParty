@@ -14,6 +14,7 @@ export const SongModel: React.FC<SongModelProps> = (props) => {
         <Box d='flex' flexDirection='column' maxW='300px' >
             <Box ml={1} w='100%' display="flex" alignItems='center' justifyContent='space-between' >
                 <FormLabel color='tomato'>1<Icon name='arrow-down'/></FormLabel>
+                <FormLabel >3<Icon name='arrow-up-down'/></FormLabel>
                 <FormLabel color='Green'>2<Icon name='arrow-up'/></FormLabel>
             </Box>
             <Image size='300' src='https://i.scdn.co/image/ab67616d00001e020b73f9c0b28314ae14ad9e20' />

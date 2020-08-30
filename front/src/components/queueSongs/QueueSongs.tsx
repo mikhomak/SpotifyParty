@@ -6,7 +6,7 @@ import { Box } from "@chakra-ui/core";
 export const QueueSongs = () => {
 
     return (
-        <Box>
+        <Box display='flex' alignItems='center' justifyContent='center'>
             <SongModel name='The only exception' artist="Paramore" position={1}/>
         </Box>
     );
