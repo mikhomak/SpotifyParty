@@ -10,19 +10,14 @@ interface SongModelProps {
 
 export const SongModel: React.FC<SongModelProps> = (props) => {
 
-    const songModelType: string = props.position === 4 ? "main" : "secondly";
-    const songModelTypeBorder: string = props.position === 2 || props.position === 6 ? "border" : "";
-    const songModelTypeLast: string = props.position === 1 || props.position === 7 ? "last" : "";
-
-    const songModelImageStyle = songModelType + ' ' + songModelTypeBorder + ' ' + songModelTypeLast;
     return (
-        <Box w='100%' d='flex' flexDirection='column' >
-            <Box d='f' alignItems='center' justifyContent='space-between'>
+        <Box d='flex' flexDirection='column' maxW='300px' >
+            <Box ml={1} w='100%' display="flex" alignItems='center' justifyContent='space-between' >
                 <FormLabel>1</FormLabel>
-                <FormLabel>2</FormLabel>
+                <FormLabel right='auto'>2</FormLabel>
             </Box>
-            <Image src='https://i.scdn.co/image/ab67616d00001e020b73f9c0b28314ae14ad9e20' />
-            <Box>
+            <Image size='300' src='https://i.scdn.co/image/ab67616d00001e020b73f9c0b28314ae14ad9e20' />
+            <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column'>
                 <FormLabel>{props.name}</FormLabel>
                 <FormLabel>{props.artist}</FormLabel>
             </Box>
