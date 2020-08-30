@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './App.css';
 import { Main } from "./models/main/Main";
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -20,19 +20,38 @@ const client = createClient({ url: 'http://localhost:3700/graphql' });
 
 function App() {
 
+    let token = Cookies.get('token');
+    let refresh_token = Cookies.get('refresh_token');
+
+
+
 
     async function isAuth(token: string) {
         return await axios.post('http://localhost:3800/auth/isAuthorized', { token: token })
             .then(res => { return res.status === 200; })
+            .catch(error => { return false; })
+    }
+
+    async function refreshSpotyfToken() {
+        return await axios.post('http://localhost:3800/auth/refreshToken', { token: token, refresh_token: refresh_token })
+            .then(res => {
+                token = res.data.token;
+                refresh_token = res.data.refresh_token;
+            })
             .catch(error => { console.log(error); return false; })
     }
 
-    const token: string | undefined = Cookies.get('token');
+
 
     if (token === undefined || !isAuth(token === undefined ? '' : token)) {
         window.location.replace('http://localhost:3800/auth/spotifyLogin');
+        token = Cookies.get('token');
+        refresh_token = Cookies.get('refresh_token');
     }
 
+    setInterval(() => {
+        refreshSpotyfToken();
+    }, 3500 * 10);
 
     return (
         <ThemeProvider theme={customTheme}>

@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import { PORT } from './constants';
 import { router as authRouter } from './routes/auth';
+import bodyPasrser from 'body-parser';
 
 const main = async () => {
 
@@ -16,8 +17,8 @@ const main = async () => {
         })
     );
 
+    app.use(bodyPasrser.json());
     app.use('/auth', authRouter);
-
 
 
     app.listen(PORT, () => {
