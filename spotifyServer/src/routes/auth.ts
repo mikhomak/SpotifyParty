@@ -9,7 +9,7 @@ export const router = express.Router({
 
 
 router.get('/spotifyLogin', async function (req, res, next) {
-    const scopes = 'streaming user-read-private user-read-email user-read-playback-state';
+    const scopes = 'streaming user-read-private user-read-email user-read-playback-state user-modify-playback-state ';
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=' + SPOTIFY_TOKEN +

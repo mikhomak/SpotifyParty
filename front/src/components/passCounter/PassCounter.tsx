@@ -1,5 +1,6 @@
 import React from 'react';
 import './PassCounter.css';
+import { Box } from '@chakra-ui/core';
 
 interface PassCounterProps {
     counter: number;
@@ -9,13 +10,13 @@ interface PassCounterProps {
 export const PassCounter:React.FC<PassCounterProps> = (props) =>{
 
     return(
-        <div className='PassCounter'>
+        <Box>
             <span>
                 Pass?! - &nbsp;   
             </span>
             <span>
                 {props.counter}
             </span>
-        </div>
+        </Box>
     );
 };

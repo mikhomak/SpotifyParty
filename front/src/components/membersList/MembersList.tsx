@@ -1,9 +1,9 @@
 import React from 'react';
-import './MembersList.css'
+import { Box } from '@chakra-ui/core';
 export const MembersList = () => {
 
     return (
-        <div className='MemebersList'>
+        <Box>
             <span>Members:</span>
             <ul>
                 <li>snack</li>
@@ -12,7 +12,7 @@ export const MembersList = () => {
                 <li>snack</li>
                 <li>snack</li>
             </ul>
-        </div>
+        </Box>
     );
 
 };

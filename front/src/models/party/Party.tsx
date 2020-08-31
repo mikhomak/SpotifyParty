@@ -11,17 +11,15 @@ import { Box } from "@chakra-ui/core";
 export const Party = () => {
 
 
-    function toggleSkiping() {
-
-    }
     return (
-        <Box p='7%'>
+        <Box p='7%' alignItems='center' justifyContent='center' flexDirection='column'>
             <Box>
                 <QueueSongs />
             </Box>
-            <Box pt='5%' display='flex' alignItems='center' justifyContent='space-between'>
+            <Box display='flex' flexDirection='row' alignItems='center' justifySelf='center' justifyContent='space-between'>
                 <MembersList />
-                <PartyControls toggleSkiping={toggleSkiping} />
+                <PartyControls  />
+                <Box>asd</Box>
             </Box>
         </Box>
     );
