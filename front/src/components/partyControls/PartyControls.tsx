@@ -1,15 +1,27 @@
 import React from 'react';
 import './PartyControls.css';
-import { PassCounter } from '../passCounter/PassCounter';
-import { Box } from '@chakra-ui/core';
+import { Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from '@chakra-ui/core';
 
 
 
 export const PartyControls = () => {
-
+    const { isOpen, onOpen, onClose } = useDisclosure();
     return (
-        <Box w='300' >
-            <PassCounter counter={5} />
-        </Box>
+        <>
+            <Button variantColor="blue" onClick={onOpen}>
+                Open
+            </Button>
+            <Drawer placement='top' onClose={onClose} isOpen={isOpen} >
+                <DrawerOverlay />
+                <DrawerContent backgroundColor='black'>
+                    <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
+                    <DrawerBody>
+                        <p>Some contents...</p>
+                        <p>Some contents...</p>
+                        <p>Some contents...</p>
+                    </DrawerBody>
+                </DrawerContent>
+            </Drawer>
+        </>
     );
 };

@@ -11,7 +11,7 @@ interface SongModelProps {
 export const SongModel: React.FC<SongModelProps> = (props) => {
 
     return (
-        <Box  >
+        <Box >
             <Box ml={1} w='100%' display="flex" alignItems='center' justifyContent='space-between' >
                 <FormLabel color='tomato'>
                     <Button variant='ghost'>
@@ -21,7 +21,7 @@ export const SongModel: React.FC<SongModelProps> = (props) => {
                 <FormLabel >
                     <Button variant='ghost' _hover={{color:'black', background:'white'}}>
                         3<Icon name='arrow-up-down' />
-                    </Button>
+                    </Button> 
                 </FormLabel>
                 <FormLabel color='Green'>
                     <Button variant='ghost' >
