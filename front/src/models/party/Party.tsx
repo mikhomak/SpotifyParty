@@ -1,10 +1,9 @@
 import React from "react";
 import './Party.css';
 import { QueueSongs } from "../../components/queueSongs/QueueSongs";
-import { PassCounter } from "../../components/passCounter/PassCounter";
 import { PartyControls } from "../../components/partyControls/PartyControls";
 import { MembersList } from "../../components/membersList/MembersList";
-import { Box, Button, Flex } from "@chakra-ui/core";
+import { Box,  Flex } from "@chakra-ui/core";
 
 
 

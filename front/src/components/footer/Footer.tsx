@@ -9,7 +9,7 @@ export const Footer = () => {
     const token = Cookies.get('token')?.toString() ?? '';
 
     return (
-        <Box gridRow='9' gridColumn='span 7' w='100%'
+        <Box pl={4} pr={4} gridRow='9' gridColumn='span 7' w='100%'
             backgroundColor='grey'
             justifyContent='space-between' alignItems='center' d='f'>
             <SpotifyPlayer
