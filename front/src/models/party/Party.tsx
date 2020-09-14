@@ -22,10 +22,9 @@ export const Party = ({ match }: RouteComponentProps<PartyProps>) => {
     });
 
 
-    if (partyResponse[0].data?.party.errors !== null ) {
+    if (!partyResponse[0].fetching && partyResponse[0].data?.party.errors !== null ) {
         return (
-            <Flex align='center'>
-
+            <Flex align='center' justifyContent='center'>
                 Oops! something went wrong!
                 {/* {toErrorMap(partyResponse[0].data.party.errors)} */}
             </Flex>
