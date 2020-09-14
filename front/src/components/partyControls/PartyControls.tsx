@@ -1,5 +1,4 @@
 import React from 'react';
-import './PartyControls.css';
 import { Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, useDisclosure } from '@chakra-ui/core';
 import { SongModel } from '../queueSongs/songModel/SongModel';
 import { InputField } from '../UI/inputField/InputFields';

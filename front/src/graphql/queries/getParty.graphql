@@ -1,0 +1,12 @@
+query Party($id:Int!) {
+  party(id:$id) {
+    errors{
+      field
+      message
+    }
+    party{
+      id
+      name
+    }
+  }
+}

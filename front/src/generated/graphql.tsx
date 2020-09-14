@@ -99,6 +99,25 @@ export type PartiesQuery = (
   )> }
 );
 
+export type PartyQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type PartyQuery = (
+  { __typename?: 'Query' }
+  & { party: (
+    { __typename?: 'PartyResponse' }
+    & { errors?: Maybe<Array<(
+      { __typename?: 'FieldError' }
+      & Pick<FieldError, 'field' | 'message'>
+    )>>, party?: Maybe<(
+      { __typename?: 'PartyModel' }
+      & Pick<PartyModel, 'id' | 'name'>
+    )> }
+  ) }
+);
+
 
 export const CreatePartyDocument = gql`
     mutation CreateParty($name: String!, $isPrivate: Boolean!) {
@@ -130,4 +149,22 @@ export const PartiesDocument = gql`
 
 export function usePartiesQuery(options: Omit<Urql.UseQueryArgs<PartiesQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<PartiesQuery>({ query: PartiesDocument, ...options });
+};
+export const PartyDocument = gql`
+    query Party($id: Int!) {
+  party(id: $id) {
+    errors {
+      field
+      message
+    }
+    party {
+      id
+      name
+    }
+  }
+}
+    `;
+
+export function usePartyQuery(options: Omit<Urql.UseQueryArgs<PartyQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<PartyQuery>({ query: PartyDocument, ...options });
 };
