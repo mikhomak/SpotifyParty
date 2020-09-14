@@ -21,18 +21,18 @@ export const Party = ({ match }: RouteComponentProps<PartyProps>) => {
     });
 
 
-    if(partyResponse[0].data?.party.errors !== null){
-        return(
+    if (partyResponse[0].data?.party.errors !== null) {
+        return (
             <Flex align='center'>
                 {partyResponse[0].data?.party.errors}
             </Flex>
         )
     }
 
-    
+
     const partyName = !partyResponse[0].fetching ?
-     partyResponse[0].data?.party.party?.name :
-     <Spinner color='Green'/>;
+        partyResponse[0].data?.party.party?.name :
+        <Spinner color='Green' />;
 
     return (
         <Flex h='100%' pl='7%' pr='7%' alignItems='center' justifyContent='center' flexDirection='column'>
