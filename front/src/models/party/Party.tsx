@@ -24,7 +24,7 @@ export const Party = ({ match }: RouteComponentProps<PartyProps>) => {
 
     if (partyResponse[0].data?.party.errors !== null ) {
         return (
-            <Flex algn='center'>
+            <Flex align='center'>
 
                 Oops! something went wrong!
                 {/* {toErrorMap(partyResponse[0].data.party.errors)} */}
