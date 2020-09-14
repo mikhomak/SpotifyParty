@@ -8,7 +8,7 @@ import { Box } from '@chakra-ui/core';
 export const PartyControls = () => {
 
     return (
-        <Box >
+        <Box w='300' >
             <PassCounter counter={5} />
         </Box>
     );
