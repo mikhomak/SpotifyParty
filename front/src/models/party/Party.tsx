@@ -6,6 +6,7 @@ import { Box, Flex, Spinner } from "@chakra-ui/core";
 import { PartyQuery, PartyResponse, usePartyQuery } from "../../generated/graphql";
 import { UseQueryResponse } from "urql/dist/types/hooks/useQuery";
 import { RouteComponentProps } from 'react-router';
+import { toErrorMap } from "../../utils/toErrorMap";
 
 
 interface PartyProps {
@@ -21,10 +22,12 @@ export const Party = ({ match }: RouteComponentProps<PartyProps>) => {
     });
 
 
-    if (partyResponse[0].data?.party.errors !== null) {
+    if (partyResponse[0].data?.party.errors !== null ) {
         return (
-            <Flex align='center'>
-                {partyResponse[0].data?.party.errors}
+            <Flex algn='center'>
+
+                Oops! something went wrong!
+                {/* {toErrorMap(partyResponse[0].data.party.errors)} */}
             </Flex>
         )
     }
