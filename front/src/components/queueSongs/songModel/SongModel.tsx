@@ -11,10 +11,10 @@ interface SongModelProps {
 export const SongModel: React.FC<SongModelProps> = (props) => {
 
     return (
-        <Box >
-            <Box ml={1} w='100%' display="flex" alignItems='center' justifyContent='space-between' >
+        <Box m={1}>
+            <Box pb={1} ml={1} w='100%' display="flex" alignItems='center' justifyContent='space-between' >
                 <FormLabel color='tomato'>
-                    <Button variant='ghost'>
+                    <Button variant='ghost' _hover={{transform:'scale(0.98)', background:'white'}} _active={{transform:'scale(1.14)', background:'grey'}}>
                         1<Icon name='arrow-down' />
                     </Button>
                 </FormLabel>

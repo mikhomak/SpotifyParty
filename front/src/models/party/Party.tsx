@@ -15,7 +15,7 @@ export const Party = () => {
         <Flex h='100%' pl='7%' pr='7%' alignItems='center' justifyContent='center' flexDirection='column'>
             <Box fontSize='50px' mt={5} pb={2}> Name</Box>
             <QueueSongs />
-            <Flex pb={5}>
+            <Flex pb={5} justifyContent='space-between' align='center' w='100%'>
                 <MembersList />
                 <PartyControls/>
             </Flex>
