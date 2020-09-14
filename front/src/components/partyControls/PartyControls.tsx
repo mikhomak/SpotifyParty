@@ -21,7 +21,7 @@ export const PartyControls = () => {
                     <DrawerHeader borderBottomWidth="1px">
                         <Formik initialValues={{}} onSubmit={() => console.log('as')}>
                             <Form>
-                                <InputField name="song" placeholder="enter song name..." label="Songname" />
+                                <InputField name="song" placeholder="enter song name..." label="Songname" focusStyle={{backgroundColor:'grey', color:'white'}}/>
                             </Form>
                         </Formik>
                     </DrawerHeader>
