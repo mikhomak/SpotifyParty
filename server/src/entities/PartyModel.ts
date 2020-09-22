@@ -24,4 +24,8 @@ export class PartyModel {
     @Property({ type: 'boolean', nullable: true})
     isPrivate: boolean = false;
 
+    @Field(() => Int)
+    @PrimaryKey()
+    currentUsersAmount: number = 0;
+
 }

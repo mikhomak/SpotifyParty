@@ -1,12 +1,13 @@
-query Party($id:Int!) {
-  party(id:$id) {
-    errors{
+query Party($id: Int!) {
+  party(id: $id) {
+    errors {
       field
       message
     }
-    party{
+    party {
       id
       name
+      currentUsersAmount
     }
   }
 }

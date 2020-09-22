@@ -1,6 +1,7 @@
-query Parties{
-  parties{
+query Parties {
+  parties {
     id
     name
+    currentUsersAmount
   }
 }
