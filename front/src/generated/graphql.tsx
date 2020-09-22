@@ -42,6 +42,7 @@ export type PartyModel = {
   updatedAt: Scalars['String'];
   name: Scalars['String'];
   isPrivate: Scalars['Boolean'];
+  currentUsersAmount: Scalars['Int'];
 };
 
 export type Mutation = {
@@ -95,7 +96,7 @@ export type PartiesQuery = (
   { __typename?: 'Query' }
   & { parties: Array<(
     { __typename?: 'PartyModel' }
-    & Pick<PartyModel, 'id' | 'name'>
+    & Pick<PartyModel, 'id' | 'name' | 'currentUsersAmount'>
   )> }
 );
 
@@ -113,7 +114,7 @@ export type PartyQuery = (
       & Pick<FieldError, 'field' | 'message'>
     )>>, party?: Maybe<(
       { __typename?: 'PartyModel' }
-      & Pick<PartyModel, 'id' | 'name'>
+      & Pick<PartyModel, 'id' | 'name' | 'currentUsersAmount'>
     )> }
   ) }
 );
@@ -143,6 +144,7 @@ export const PartiesDocument = gql`
   parties {
     id
     name
+    currentUsersAmount
   }
 }
     `;
@@ -160,6 +162,7 @@ export const PartyDocument = gql`
     party {
       id
       name
+      currentUsersAmount
     }
   }
 }
