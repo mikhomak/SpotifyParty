@@ -5,15 +5,17 @@ import { MembersList } from "../../components/membersList/MembersList";
 import { Box, Flex, Spinner } from "@chakra-ui/core";
 import { PartyQuery, PartyResponse, usePartyQuery } from "../../generated/graphql";
 import { UseQueryResponse } from "urql/dist/types/hooks/useQuery";
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 import { toErrorMap } from "../../utils/toErrorMap";
+import { SpotifyApiProps } from "../../utils/SpotifyApiPropos";
 
 
-interface PartyProps {
+interface PartyProps extends SpotifyApiProps {
     id: string;
+
 }
 
-export const Party = ({ match }: RouteComponentProps<PartyProps>) => {
+const Party = ({ match }: RouteComponentProps, PartyProps) => {
 
     const partyResponse: UseQueryResponse<PartyQuery> = usePartyQuery({
         variables: {
@@ -47,3 +49,6 @@ export const Party = ({ match }: RouteComponentProps<PartyProps>) => {
         </Flex>
     );
 }
+
+const PartyRouter  = withRouter(Party);
+export {PartyRouter as Party};

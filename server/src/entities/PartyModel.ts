@@ -25,7 +25,7 @@ export class PartyModel {
     isPrivate: boolean = false;
 
     @Field(() => Int)
-    @PrimaryKey()
+    @PrimaryKey({type : 'number'})
     currentUsersAmount: number = 0;
 
 }

@@ -23,7 +23,7 @@ function App() {
 
     let token = Cookies.get('token');
     let refresh_token = Cookies.get('refresh_token');
-    const spotifyApi = new SpotifyWebApi();
+    const spotifyApi: SpotifyWebApi.SpotifyWebApiJs = new SpotifyWebApi();
 
 
     async function isAuth(token: string) {
@@ -43,16 +43,15 @@ function App() {
     }
 
 
-
     if (token === undefined || !isAuth(token === undefined ? '' : token)) {
         window.location.replace('http://localhost:3800/auth/spotifyLogin');
-    }else{
+    } else {
         token = Cookies.get('token');
         refresh_token = Cookies.get('refresh_token');
         spotifyApi.setAccessToken(Cookies.get('token') || '');
-        spotifyApi.searchTracks('Love').then(function(data){
+        spotifyApi.searchTracks('Love').then(function (data) {
             console.log(data);
-        }).catch(function(err){
+        }).catch(function (err) {
             console.log(err);
         });
     }
@@ -77,7 +76,7 @@ function App() {
                                 <Route exact path="/create" component={Main} />
                                 <Route exact path="/join" component={Main} />
                                 <Route exact path="/about" component={About} />
-                                <Route exact path="/party/:id" component={Party} />
+                                <Route exact path="/party/:id" component={() => <Party  />} />
                                 <Route exact path="/pass" component={PlaylistPass} />
                             </Switch>
                         </Box>

@@ -18,7 +18,7 @@ export const PartyControls = () => {
                 <DrawerOverlay />
                 <DrawerContent backgroundColor='grey'>
                     <DrawerHeader borderBottomWidth="1px">
-                        <Formik initialValues={{}} onSubmit={() => console.log('as')}>
+                        <Formik initialValues={{}} onSubmit={() => console.log('pussy pussy')}>
                             <Form>
                                 <InputField name="song" placeholder="enter song name..." label="Songname" focusStyle={{backgroundColor:'grey', color:'white'}}/>
                             </Form>

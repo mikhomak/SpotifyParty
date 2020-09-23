@@ -13,7 +13,7 @@ export class PartyResolver {
     async party(
         @Arg('id', () => Int) id: number
     ): Promise<PartyResponse> {
-        const party = await Container.get<PartyService>(PartyService).findParty(id);
+        const party : PartyModel | null = await Container.get<PartyService>(PartyService).findParty(id);
         if (party === null) {
             return logErrorGraphql('id', 'Cant find party with this id : ' + id);
         }
@@ -31,7 +31,7 @@ export class PartyResolver {
         @Arg('name', () => String) name: String,
         @Arg('isPrivate', () => Boolean) isPrivate: boolean
     ): Promise<PartyResponse> {
-        const party = await Container.get<PartyService>(PartyService).createParty(name, isPrivate);
+        const party : PartyModel | null = await Container.get<PartyService>(PartyService).createParty(name, isPrivate);
         if (party === null) {
             return logErrorGraphql('name', 'someting went wrong while creating a party');
         }
@@ -43,7 +43,7 @@ export class PartyResolver {
         @Arg('id', () => Int) id: number,
         @Arg('name', () => String, { nullable: true }) name: String
     ): Promise<PartyResponse> {
-        const party = await Container.get<PartyService>(PartyService).updateParty(id, name);
+        const party : PartyModel | null = await Container.get<PartyService>(PartyService).updateParty(id, name);
         if (party === null) {
             return logErrorGraphql('id', 'Cant find party with this id : ' + id);
         }
