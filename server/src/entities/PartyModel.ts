@@ -21,11 +21,11 @@ export class PartyModel {
     name: String;
 
     @Field(() => Boolean)
-    @Property({ type: 'boolean', nullable: true})
+    @Property({ type: 'boolean', nullable: true })
     isPrivate: boolean = false;
 
     @Field(() => Int)
-    @PrimaryKey({type : 'number'})
-    currentUsersAmount: number = 0;
+    @Property({type: 'number', default:0})
+    usersAmount: number = 0;
 
 }
